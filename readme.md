@@ -1,5 +1,5 @@
 # Project Name
 - Kyo Lee (@DetectiPhoenix)
-- Name (@username)
+- Maryia Sakharava (@maryiasakharava)
 - Name (@username)
 - Name (@username)
