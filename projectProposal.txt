@@ -1,6 +1,8 @@
 I was going to create a Google Doc for this, but wouldn't this be much more fun?
 
-We need 6 functional requirements, and 4 non functional requirements. When adding requirements, add
+We need 12 functional requirements, and 4 non functional requirements. For 
+the 6 fucntional requirements we also need to write use cases. When adding 
+requirements, add
 both the exact name, a short description, and an idea of how you are going to create it. Let us go for
 at least four low pass requirements, and two high pass requirements.
 
@@ -17,14 +19,31 @@ FUNCTIONAL REQUIREMENTS
 		called "\cardinput". After inputting information, there is a "SUBMIT" button that
 		checks to make sure all the String inputs are filled out. Redirects user to buy page
 		(Maybe include a flash message that says "You have successfully purchased this item.")
-2.
-3.
-4.
+2. Login (Maryia)
+	Description: The user is able to input their username and password and click the "Login" button. If the credentials match,
+		the user is redirected to their profile page.
+	Idea: Login page would be a separate page with two input fields for user's username and password. 
+		It would also have a "Login" button. When the button is clicked, the program would check if the information 
+		entered is correct, and if it is, the user would be redirected to their profile page ( or just the home page with 
+		the link to their profile on top of the page)
+3. Logout (Maryia)
+	Description: The user would be able to sign out of their profile by clicking on the "Logout" button. When signed out, the 
+			user would be redirected to the home page.
+	Idea: Logout button might be implemented on the user's profile page. When the user clicks the button, he would be signed
+		out of their profile and then taken back to the home page.
+4. Add to cart (Maryia)
+	Description: The user would be able to add an item to their cart by clicking the "Add to cart" button. 
+	Idea: When the "Add to cart" button is clicked, a specific item is added to a dictionary, where the name of the
+		item is the key, and the amount of items is the value. There might also be a button to chenge the number of items 
+		the user wants to add, and them when the button is clicked, the number would be the value for that key. Can be 	
+		combined with a "View the cart" requirement.
 5.
 6.
 
 NON-FUNCTIONAL REQUIREMENTS
-1.
+1. Expected to work on multiple browsers (Maryia)
+	Idea: The program should be able to run on multiple browsers (Google Chrome, Safari, Firefox) in order to 
+		be more accessible to users who only have access to one of those browsers.
 2.
 3.
 4.
