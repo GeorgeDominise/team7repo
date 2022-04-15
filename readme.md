@@ -1,5 +1,5 @@
 # Project Name
-- Name (@username)
+- Kyo Lee (@DetectiPhoenix)
 - Name (@username)
 - Name (@username)
 - Name (@username)

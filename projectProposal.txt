@@ -1,6 +1,6 @@
 I was going to create a Google Doc for this, but wouldn't this be much more fun?
 
-We need 6 functional requirements, and 4 non functional requirements. When adding requirements, add
+We need 12 functional requirements, and 4 non functional requirements. When adding requirements, add
 both the exact name, a short description, and an idea of how you are going to create it. Let us go for
 at least four low pass requirements, and two high pass requirements.
 
