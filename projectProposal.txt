@@ -1,0 +1,32 @@
+I was going to create a Google Doc for this, but wouldn't this be much more fun?
+
+We need 6 functional requirements, and 4 non functional requirements. When adding requirements, add
+both the exact name, a short description, and an idea of how you are going to create it. Let us go for
+at least four low pass requirements, and two high pass requirements.
+
+High Pass reqiurements should have an asterisk after its name. Feel free to add more requirements
+after the required six/four needed (or in this case, as wanted).
+
+===============
+
+FUNCTIONAL REQUIREMENTS
+1. Buy Item
+	Description: The user is able to click a "BUY ITEM" button, and is given a page where they
+		can input their address and credit card information.
+	Idea: The "BUY ITEM" button redirects the user to another page (maybe on another tab? Could be
+		called "\cardinput". After inputting information, there is a "SUBMIT" button that
+		checks to make sure all the String inputs are filled out. Redirects user to buy page
+		(Maybe include a flash message that says "You have successfully purchased this item.")
+2.
+3.
+4.
+5.
+6.
+
+NON-FUNCTIONAL REQUIREMENTS
+1.
+2.
+3.
+4.
+
+===============
