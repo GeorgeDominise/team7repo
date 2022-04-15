@@ -1,5 +1,5 @@
 # Project Name
-- Name (@username)
+- George Dominise (@GeorgeDominise)
 - Name (@username)
 - Name (@username)
 - Name (@username)
