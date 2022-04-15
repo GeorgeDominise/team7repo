@@ -5,12 +5,12 @@ both the exact name, a short description, and an idea of how you are going to cr
 at least four low pass requirements, and two high pass requirements.
 
 High Pass reqiurements should have an asterisk after its name. Feel free to add more requirements
-after the required six/four needed (or in this case, as wanted).
+after the required twelve/four needed (or in this case, as wanted).
 
 ===============
 
 FUNCTIONAL REQUIREMENTS
-1. Buy Item
+1. Buy Item (Kyo)
 	Description: The user is able to click a "BUY ITEM" button, and is given a page where they
 		can input their address and credit card information.
 	Idea: The "BUY ITEM" button redirects the user to another page (maybe on another tab? Could be
@@ -35,8 +35,14 @@ FUNCTIONAL REQUIREMENTS
                 item is the key, and the amount of items is the value. There might also be a button to chenge the number of items
                 the user wants to add, and them when the button is clicked, the number would be the value for that key. Can be
                 combined with a "View the cart" requirement.
-5.
+5. 
 6.
+7.
+8.
+9.
+10.
+11.
+12.
 
 NON-FUNCTIONAL REQUIREMENTS
 1. Expected to work on multiple browsers (Maryia)
