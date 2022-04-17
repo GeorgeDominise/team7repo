@@ -54,8 +54,12 @@ FUNCTIONAL REQUIREMENTS
                 item is the key, and the amount of items is the value. There might also be a button to chenge the number of items
                 the user wants to add, and them when the button is clicked, the number would be the value for that key. Can be
                 combined with a "View the cart" requirement. 
-7.
-8.
+7. Find Items (George)
+	Description: The user would be able to find an item on a seller's profile by searching for it in a "search bar." 
+	Idea: When searching for an item in the search bar, by typing in an item's specified name, it can scan for the item that has been added by a seller in their dictionary. However, if it doesn't exist, display DNE.
+8. See All Seller's Items (George)
+	Description: The user would be able to display all of the seller's sold items on one page after pressing on a button, such as their 'profile' or 'shop' button.
+	Idea: When looking at a user's profile, there can be a button that is connected to a shop page, such as "View all items." After clicking on it, it will display the user's dictionary of all the items being sold by the user that are availbale.
 9.
 10.
 11.

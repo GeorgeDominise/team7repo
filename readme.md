@@ -1,5 +1,5 @@
 # Project Name
 - Kyo Lee (@DetectiPhoenix)
 - Maryia Sakharava (@maryiasakharava)
-- Name (@username)
+- George Dominise (@GeorgeDominise)
 - Name (@username)
