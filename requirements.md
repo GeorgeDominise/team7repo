@@ -8,7 +8,7 @@
 6. Add to Cart
 7. Find Items
 8. See All Seller's Items
-9. 
+9. User ratings 
 10. Create Account
 11. Delete Account
 12. Bid on Item
@@ -20,7 +20,7 @@
 
 1. Expected to work on multiple browsers
 2. Keep program code organized and maintainable
-3. 
+3. Password Requirements
 4. Processing time under 1.0s
 
 ## Use Cases
