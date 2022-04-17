@@ -63,9 +63,18 @@ FUNCTIONAL REQUIREMENTS
 	Idea: When looking at a user's profile, there can be a button that is connected to a shop page, such as "View all items."
 	 After clicking on it, it will display the user's dictionary of all the items being sold by the user that are availbale.
 9.
-10.
-11.
-12.
+10.Create Account (Rohan): 
+Description: The user clicks “Create Account” and is prompted to create a username and password for future logins. Access credentials, a user role, and a security profile are all provided to the user. User roles define what actions the user has permission to perform. Security profiles define what data the user has permission to access.
+Idea: The user clicks “Create Account” and enters credentials to be able to access certain features on the website
+
+11.Delete Account (Rohan): 
+Description: The user clicks “Delete Account” and is prompted to delete their account which removes their current username and password and prevents them from being used for future logins. Access credentials, a user role, and a security profile which were all provided to the user when they created an account no longer exist for the user.
+Idea: The user clicks “Delete Account” and enters credentials to be able to remove data as well as revoke their permission  access certain features on the website
+
+12.Bid on Item (Rohan): 
+Description: The user is able to click on “Bid on Item” which enables them to name a price for which they are willing to pay for a specific item. If the item listed already has a price listed, the bidder must increase the price they are willing to pay in order to secure the item. The highest bidder in the given time limit secures the item.
+Idea: Highest bidder during a specified time period buys and secures the item 
+
 
 NON-FUNCTIONAL REQUIREMENTS
 1. Expected to work on multiple browsers (Maryia)
@@ -74,7 +83,9 @@ NON-FUNCTIONAL REQUIREMENTS
 2. Keep program code organized and maintainable (Kyo)
 	Idea: Code should be sorted into its respective folders. Code should all follow the same
 		formatting, so edits can be easily made in the future.
-3.
+3.Processing Time (Rohan): 
+Idea: Functions, calculations, imports, exports, etc. should all be able to execute in a timely matter, specifically less than 1.0 seconds
+
 4.
 
 ===============
