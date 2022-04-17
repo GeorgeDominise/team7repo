@@ -60,7 +60,7 @@
 1.
 
 2. Buy Item
-- **Pre-condition:** The buyer must be logged in.
+- **Pre-condition:** The customer must be logged in.
 
 - **Trigger:** Customer selects "Buy Item" option.
 
@@ -75,7 +75,19 @@
 
 - **Primary Postconditions:** The order has been placed, send an email to the seller. The customer's credit card has been charged for the transaction.
 
-3.
+- **Alternate Sequence:**
+
+  1. The customer fails to fill in all necessary fields.
+  2. A message saying "Please fill in all required fields, marked by an asterisk (*)" is flashed to the top of the screen.
+
+3. Sell Item
+- **Pre-condition:** The customer must be logged in.
+
+- **Trigger:** Customer selects "Sell Item" option, located at the top of the page.
+
+- **Primary Sequence:**
+
+  1. 
 
 4.
 
