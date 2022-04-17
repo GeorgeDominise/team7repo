@@ -7,36 +7,53 @@ at least four low pass requirements, and two high pass requirements.
 High Pass reqiurements should have an asterisk after its name. Feel free to add more requirements
 after the required twelve/four needed (or in this case, as wanted).
 
+Please keep in mind that these FOUR functional reqiurements must be implemented. Check off the
+requirement on this list of you have chosen to complete it.
+[X] Login
+[X] Logout
+[ ] Create Account
+[ ] Delete Account
+
 ===============
 
 FUNCTIONAL REQUIREMENTS
 1. Buy Item (Kyo)
 	Description: The user is able to click a "BUY ITEM" button, and is given a page where they
-		can input their address and credit card information.
+		can input their address and credit card information. Prerequisite: Be logged in
 	Idea: The "BUY ITEM" button redirects the user to another page (maybe on another tab? Could be
 		called "\cardinput". After inputting information, there is a "SUBMIT" button that
 		checks to make sure all the String inputs are filled out. Redirects user to buy page
 		(Maybe include a flash message that says "You have successfully purchased this item.")
-2. Login (Maryia)
+2. *Add pictures for items (Kyo)
+	Description: Every item in the database will be assigned an image. This image will be shown
+		when viewing the item on the website.
+	Idea: Simple HTML, using the <img> tag. Seller will have to paste a source to the image when
+		creating the item. Seller can also opt to not include an image, and an image with the
+		words "no image available" will be displayed instead.
+3. Sell Item (Kyo)
+	Description: The user is able to click a "SELL ITEM" button, and is directed to a page where
+		they can input information regarding the product, such as name, price, image (see
+		functional requirement 2), and a description.
+	Idea: Same idea as Buy Item (see functional requirement 1). This will create an entry in
+		the main database, and be linked to the sellers name. One to Many scenario.
+4. Login (Maryia)
         Description: The user is able to input their username and password and click the "Login" button. If the credentials match,
                 the user is redirected to their profile page.
         Idea: Login page would be a separate page with two input fields for user's username and password.
                 It would also have a "Login" button. When the button is clicked, the program would check if the information
                 entered is correct, and if it is, the user would be redirected to their profile page ( or just the home page with
                 the link to their profile on top of the page)
-3. Logout (Maryia)
+5. Logout (Maryia)
         Description: The user would be able to sign out of their profile by clicking on the "Logout" button. When signed out, the
-                        user would be redirected to the home page.
+		user would be redirected to the home page.
         Idea: Logout button might be implemented on the user's profile page. When the user clicks the button, he would be signed
                 out of their profile and then taken back to the home page.
-4. Add to cart (Maryia)
+6. Add to cart (Maryia)
         Description: The user would be able to add an item to their cart by clicking the "Add to cart" button.
         Idea: When the "Add to cart" button is clicked, a specific item is added to a dictionary, where the name of the
                 item is the key, and the amount of items is the value. There might also be a button to chenge the number of items
                 the user wants to add, and them when the button is clicked, the number would be the value for that key. Can be
-                combined with a "View the cart" requirement.
-5. 
-6.
+                combined with a "View the cart" requirement. 
 7.
 8.
 9.
@@ -48,14 +65,9 @@ NON-FUNCTIONAL REQUIREMENTS
 1. Expected to work on multiple browsers (Maryia)
         Idea: The program should be able to run on multiple browsers (Google Chrome, Safari, Firefox) in order to
                 be more accessible to users who only have access to one of those browsers.
-3.
-4.
-5.
-6.
-
-NON-FUNCTIONAL REQUIREMENTS
-1.
-2.
+2. Keep program code organized and maintainable (Kyo)
+	Idea: Code should be sorted into its respective folders. Code should all follow the same
+		formatting, so edits can be easily made in the future.
 3.
 4.
 
