@@ -1,33 +1,31 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
-7. requirement
-8. requirement
-9. requirement
-10. requirement
-11. requirement
-12. requirement
-13. requirement
-14. requirement
-15. requirement
+1. Buy Item
+2. *Add Pictures for Items
+3. Sell Item
+4. Login
+5. Logout
+6. Add to Cart
+7. Find Items
+8. See All Seller's Items
+9. 
+10. Create Account
+11. Delete Account
+12. Bid on Item
+13.
+14.
+15. 
 
 ## Non-functional Requirements
 
-1. non-functional
-2. non-functional
-3. non-functional
-4. non-functional
+1. Expected to work on multiple browsers
+2. Keep program code organized and maintainable
+3. 
+4. Processing time under 1.0s
 
 ## Use Cases
 
-1. Use Case Name (Should match functional requirement name)
+0. Use Case Name (Should match functional requirement name) DO NOT EDIT THIS. IT SERVES AS EVERYONE'S TEMPLATE.
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
 
 - **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
@@ -59,12 +57,32 @@
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
 
+1.
 
-2. Use Case Name (Should match functional requirement name)
-   ...
+2. Buy Item
+- **Pre-condition:** The buyer must be logged in.
+
+- **Trigger:** Customer selects "Buy Item" option.
+
+- **Primary Sequence:**
+
+  1. System prompts the customer to enter in their card holder name, credit card number, CVV, and card expiration date.
+  2. Customer has the option to save card information in database through a checkbox.
+  3. System checks to make sure object is still available.
+  4. System charges customer.
+  5. Customer is shown a message confirming that the order has been placed.
+  6. Customer is redirected to the home page.
+
+- **Primary Postconditions:** The order has been placed, send an email to the seller. The customer's credit card has been charged for the transaction.
 
 3.
 
 4.
 
 5.
+
+6.
+
+7.
+
+8.
