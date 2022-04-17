@@ -9,9 +9,9 @@
 7. Find Items
 8. See All Seller's Items
 9. User ratings 
-10.Logout
-11.Add to Cart
-12.Delete Account
+10. Logout
+11. Add to Cart
+12. Delete Account
 13.
 14. 
 15. 
@@ -97,16 +97,16 @@
 
 4.
 
-5.Create Account
+5. Create Account
 - **Pre-condition:** The user must have an email account
 
-- **Trigger:** User selects "Create Account" option, located under the login screen$
+- **Trigger:** User selects "Create Account" option, located under the login screen
 
 - **Primary Sequence:**
 
-  1. System prompts the user to enter in their preferred email and asks them to confirm it$
-  2. Systems promts the user to enter in a password that meets requirements and to re-type it in order to confirm$
-  3. User is redirected to either a welcome or home page which will show up whenever they login. They have access to improved features on the website.$
+  1. System prompts the user to enter in their preferred email and asks them to confirm it
+  2. Systems promts the user to enter in a password that meets requirements and to re-type it in order to confirm
+  3. User is redirected to either a welcome or home page which will show up whenever they login. They have access to improved features on the website.
 
 - **Alternate Sequrence:**
 
@@ -116,17 +116,17 @@
 6.Bid on Item
 - **Pre-condition:** The user must be logged into their account
 
-- **Trigger:** User selects "Place Bid" option, located near where the "Buy" option is$
+- **Trigger:** User selects "Place Bid" option, located near where the "Buy" option is
 
 - **Primary Sequence:**
 
   1. System prompts the user to enter in their preferred bid amount$
   2. Systems updates to show the latest bid amount placed$
-  3. User secures item if no other user has placed a higher bid during the alotted bid time period $
+  3. User secures item if no other user has placed a higher bid during the alotted bid time period 
 
 - **Alternate Sequrence:**
 
-  1. The user fails to fill in all the necessary feilds or places an insufficient bid$
+  1. The user fails to fill in all the necessary feilds or places an insufficient bid
   2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
 7.
