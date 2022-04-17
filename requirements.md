@@ -113,7 +113,7 @@
   1. The user fails to fill in all the necessary feilds or their email/password do not meet requirements
   2. A message saying "Please fill in all required fields" or "Enter a valid email/password"
 
-6.Bid on Item
+6. Bid on Item
 - **Pre-condition:** The user must be logged into their account
 
 - **Trigger:** User selects "Place Bid" option, located near where the "Buy" option is
