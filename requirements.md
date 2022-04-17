@@ -66,7 +66,7 @@
 
 - **Primary Sequence:**
 
-  1. System prompts the customer to enter in their card holder name, credit card number, CVV, and card expiration date.
+  1. System prompts the customer to enter in their card holder name, credit card number, CVV, and card expiration date. All fields are required.
   2. Customer has the option to save card information in database through a checkbox.
   3. System checks to make sure object is still available.
   4. System charges customer.
@@ -78,7 +78,7 @@
 - **Alternate Sequence:**
 
   1. The customer fails to fill in all necessary fields.
-  2. A message saying "Please fill in all required fields, marked by an asterisk (*)" is flashed to the top of the screen.
+  2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen.
 
 3. Sell Item
 - **Pre-condition:** The customer must be logged in.
@@ -87,7 +87,13 @@
 
 - **Primary Sequence:**
 
-  1. 
+  1. System prompts the seller to enter in the item name*, price*, description, and an image. Required fields have an asterisk(*).
+  2. Seller is redirected to the newly created item-buy page, with a flashed message that informs the seller their item is on the store.
+
+- **Alternate Sequrence:**
+
+  1. The seller fails to fill in all the necessary fields.
+  2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen." 
 
 4.
 
