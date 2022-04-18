@@ -124,16 +124,16 @@
 
 - **Primary Sequence:**
 
-  1.System prompts the user to input the name of an item into a search bar
-  2.System offers suggestions below the search bar that are close to what's input above.
-  3.User can either press enter to find a specific item or click on the recommended item.
+  1. System prompts the user to input the name of an item into a search bar
+  2. System offers suggestions below the search bar that are close to what's input above.
+  3. User can either press enter to find a specific item or click on the recommended item.
 
 - **Primary Postcondition:** Items correctly show up, and match search term.
 
 - **Alternate Sequence:**
  
-  1.User inputs the name of an item and it doesn't appear on the screen.
-  2.System offers alternative items that the seller provides, otherwise displays not found.
+  1. User inputs the name of an item and it doesn't appear on the screen.
+  2. System offers alternative items that the seller provides, otherwise displays not found.
 
 7. Add item to seller store
 - **Pre-condition:** Must have created an account and be logged in.
