@@ -12,8 +12,8 @@
 10. Logout
 11. Add to Cart
 12. Delete Account
-13.
-14. 
+13. User Profile
+14. Add item to seller store
 15. 
 
 ## Non-functional Requirements
@@ -146,6 +146,29 @@
   1. The user fails to fill in all the necessary feilds or places an insufficient bid
   2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
-7.
+7. Add item to seller store
+
+ Pre-condition: Must have created an account and be logged in.
+
+    Trigger:Seller clicks on "inventory management" button.
+
+    Primary Sequence:
+        1. User logs into account.
+        2. User accesses their profile.
+        3. User clicks button.
+	4. User can edit current numbers of inventory or add/remove items.
+	5. User clicks "done" button/mode
+	  
+    Primary Postconditions:
+	Updated seller page becomes visible
+    
+    Alternate Sequence :
+	1. User logs into account.
+        2. User accesses their profile.
+        3. User clicks button.
+        4. User can edit current numbers of inventory or add/remove items.
+	5. User fails to click "done" button before exiting. 
+	6. No updates are made to seller page.
+  
 
 8.
