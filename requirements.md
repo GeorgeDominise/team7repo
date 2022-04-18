@@ -129,6 +129,36 @@
   1. The user fails to fill in all the necessary feilds or places an insufficient bid
   2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
-7.
+7. Find Items
+- **Pre-condition**
+   The user must be logged into their account
+- **Trigger**
+  User selects a search bar to type the item name, at the top of the screen.
+- **Primary Sequence:**
+  1.System prompts the user to input the name of an item into a search bar
+  2.System offers suggestions below the search bar that are close to
+  what's input above.
+  3.User can either press enter to find a specific item or click on the
+  recommended item.
 
-8.
+- **Alternate Sequence:**
+ 
+  1.User inputs the name of an item and it doesn't appear on the screen.
+  2.System offers alternative items that the seller provides, otherwise 
+  displays not found.
+
+8. See All Seller's Items
+- **Pre-condition:**
+  User is logged into their account on a seller's page.
+- **Trigger:**
+  User presses a button that says "Display all items" located next to search
+  bar
+- **Primary Sequence:**
+  1. User presses the display all items button
+  2. System brings the user to a page displaying all of the items offered
+  by the seller.
+- **Alternate Sequeunce:**
+  1. The user isn't logged into their account to view the seller's items.
+  2. Prompts the user to log into their account to view the items offered
+  by the seller.
+9. User Ratings
