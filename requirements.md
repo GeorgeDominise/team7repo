@@ -4,23 +4,23 @@
 2. *Add Pictures for Items
 3. Sell Item
 4. Login
-5. Logout
-6. Add to Cart
+5. Create Account
+6. Bid on Item
 7. Find Items
 8. See All Seller's Items
-9. 
-10. Create Account
-11. Delete Account
-12. Bid on Item
+9. User ratings 
+10. Logout
+11. Add to Cart
+12. Delete Account
 13.
-14.
+14. 
 15. 
 
 ## Non-functional Requirements
 
 1. Expected to work on multiple browsers
 2. Keep program code organized and maintainable
-3. 
+3. Password Requirements
 4. Processing time under 1.0s
 
 ## Use Cases
@@ -60,13 +60,13 @@
 1.
 
 2. Buy Item
-- **Pre-condition:** The buyer must be logged in.
+- **Pre-condition:** The customer must be logged in.
 
 - **Trigger:** Customer selects "Buy Item" option.
 
 - **Primary Sequence:**
 
-  1. System prompts the customer to enter in their card holder name, credit card number, CVV, and card expiration date.
+  1. System prompts the customer to enter in their card holder name, credit card number, CVV, and card expiration date. All fields are required.
   2. Customer has the option to save card information in database through a checkbox.
   3. System checks to make sure object is still available.
   4. System charges customer.
@@ -75,13 +75,59 @@
 
 - **Primary Postconditions:** The order has been placed, send an email to the seller. The customer's credit card has been charged for the transaction.
 
-3.
+- **Alternate Sequence:**
+
+  1. The customer fails to fill in all necessary fields.
+  2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen.
+
+3. Sell Item
+- **Pre-condition:** The customer must be logged in.
+
+- **Trigger:** Customer selects "Sell Item" option, located at the top of the page.
+
+- **Primary Sequence:**
+
+  1. System prompts the seller to enter in the item name*, price*, description, and an image. Required fields have an asterisk(*).
+  2. Seller is redirected to the newly created item-buy page, with a flashed message that informs the seller their item is on the store.
+
+- **Alternate Sequrence:**
+
+  1. The seller fails to fill in all the necessary fields.
+  2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen." 
 
 4.
 
-5.
+5. Create Account
+- **Pre-condition:** The user must have an email account
 
-6.
+- **Trigger:** User selects "Create Account" option, located under the login screen
+
+- **Primary Sequence:**
+
+  1. System prompts the user to enter in their preferred email and asks them to confirm it
+  2. Systems promts the user to enter in a password that meets requirements and to re-type it in order to confirm
+  3. User is redirected to either a welcome or home page which will show up whenever they login. They have access to improved features on the website.
+
+- **Alternate Sequrence:**
+
+  1. The user fails to fill in all the necessary feilds or their email/password do not meet requirements
+  2. A message saying "Please fill in all required fields" or "Enter a valid email/password"
+
+6. Bid on Item
+- **Pre-condition:** The user must be logged into their account
+
+- **Trigger:** User selects "Place Bid" option, located near where the "Buy" option is
+
+- **Primary Sequence:**
+
+  1. System prompts the user to enter in their preferred bid amount$
+  2. Systems updates to show the latest bid amount placed$
+  3. User secures item if no other user has placed a higher bid during the alotted bid time period 
+
+- **Alternate Sequrence:**
+
+  1. The user fails to fill in all the necessary feilds or places an insufficient bid
+  2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
 7.
 
