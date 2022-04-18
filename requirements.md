@@ -95,7 +95,24 @@
   1. The seller fails to fill in all the necessary fields.
   2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen." 
 
-4.
+4. Add to Cart
+- **Pre-condition:** Item is selected
+
+- **Trigger:** "Add to Cart" button is clicked 
+
+- **Primary sequence:** 
+
+  1. The user clicks the "Add to cart button" 
+  2. The system informs the user that the item has been added to cart by displaying a message. 
+  3. The system asks the user if they would like to go to cart or continue shopping.
+ 
+- **Primary Postcondition:** The item has been added to cart.
+
+- **Alternate Sequence:**
+
+  1. The item that the user selected is unavailable.
+  2. The system informs the user that item has not been added to cart by displaying a message.
+  
 
 5.
 
