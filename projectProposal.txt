@@ -87,6 +87,19 @@ Idea: The user clicks “Delete Account” and enters credentials to be able to 
 Description: The user is able to click on “Bid on Item” which enables them to name a price for which they are willing to pay for a specific item. If the item listed already has a price listed, the bidder must increase the price they are willing to pay in order to secure the item. The highest bidder in the given time limit secures the item.
 Idea: Highest bidder during a specified time period buys and secures the item 
 
+13. Add item to seller store (Jaz)
+Description: A seller would be able to update their available inventory
+ displayed on their profiles by being able to add or remove products when
+ availability or pricing has changed.
+Idea: Sellers can update their inventory in real time and provide
+ accurate stocking/availability/pricing information for customers.
+
+14. User profiles (Jaz)
+Description: A profile is created for each user which displays their past
+ bought item history as well as user information such as credit card
+ info(connected to buy item req?) that can be edited.
+Idea: Users can edit their personal information such as delivery addresses and
+payment info as well as check out past item history for quicker repurchasing.
 >>>>>>> ac4661f6999631e35f6d9a944e8931125ecccc6c
 
 NON-FUNCTIONAL REQUIREMENTS
