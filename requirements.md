@@ -5,22 +5,15 @@
 3. Add to Cart
 4. Create Account
 5. Bid on Item
-6. Add Item to Seller Store
-
-1. Buy Item
-2. *Add Pictures for Items
-3. Sell Item
-4. Login
-5. Create Account
-6. Bid on Item
-7. Find Items
+6. Find Items
+7. Add Item to Seller Store
 8. See All Seller's Items
-9. User ratings 
-10. Logout
-11. Add to Cart
-12. Delete Account
-13. User Profile
-14. Add item to seller store
+9. *Add Pictures of Items
+10. Login
+11. User ratings
+12. Logout
+13. Delete Account
+14. User Profile
 
 ## Non-functional Requirements
 
@@ -30,38 +23,6 @@
 4. Processing time under 1.0s
 
 ## Use Cases
-
-0. Use Case Name (Should match functional requirement name) DO NOT EDIT THIS. IT SERVES AS EVERYONE'S TEMPLATE.
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
-
-- **Primary Sequence:**
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
-
-- **Primary Postconditions:** <can be a list or short description> 
-
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
 
 1. Buy Item
 - **Pre-condition:** The customer must be logged in.
@@ -94,6 +55,8 @@
   1. System prompts the seller to enter in the item name*, price*, description, and an image. Required fields have an asterisk(*).
   2. Seller is redirected to the newly created item-buy page, with a flashed message that informs the seller their item is on the store.
 
+- **Primary Postconditions:** The item is in the database, and is connected to the seller.
+
 - **Alternate Sequrence:**
 
   1. The seller fails to fill in all the necessary fields.
@@ -117,7 +80,6 @@
   1. The item that the user selected is unavailable.
   2. The system informs the user that item has not been added to cart by displaying a message.
   
-
 4. Create Account
 - **Pre-condition:** The user must have an email account
 
@@ -128,6 +90,8 @@
   1. System prompts the user to enter in their preferred email and asks them to confirm it
   2. Systems promts the user to enter in a password that meets requirements and to re-type it in order to confirm
   3. User is redirected to either a welcome or home page which will show up whenever they login. They have access to improved features on the website.
+
+- **Primary Postconditions:** Account is in the database correctly
 
 - **Alternate Sequrence:**
 
@@ -145,33 +109,67 @@
   2. Systems updates to show the latest bid amount placed$
   3. User secures item if no other user has placed a higher bid during the alotted bid time period 
 
+- **Primary Postconditions:** Bid is remembered, and is in the log until the auction is finished. Then, the credit card is charged and an order is placed in.
+
 - **Alternate Sequrence:**
 
   1. The user fails to fill in all the necessary feilds or places an insufficient bid
   2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
-6. Add item to seller store
+6. Find Items
+- **Pre-condition**
+   The user must be logged into their account
 
- Pre-condition: Must have created an account and be logged in.
+- **Trigger:** User selects a search bar to type the item name, at the top of the screen.
 
-    Trigger:Seller clicks on "inventory management" button.
+- **Primary Sequence:**
 
-    Primary Sequence:
-        1. User logs into account.
-        2. User accesses their profile.
-        3. User clicks button.
-	4. User can edit current numbers of inventory or add/remove items.
-	5. User clicks "done" button/mode
+  1.System prompts the user to input the name of an item into a search bar
+  2.System offers suggestions below the search bar that are close to what's input above.
+  3.User can either press enter to find a specific item or click on the recommended item.
+
+- **Primary Postcondition:** Items correctly show up, and match search term.
+
+- **Alternate Sequence:**
+ 
+  1.User inputs the name of an item and it doesn't appear on the screen.
+  2.System offers alternative items that the seller provides, otherwise displays not found.
+
+7. Add item to seller store
+- **Pre-condition:** Must have created an account and be logged in.
+
+- **Trigger:** Seller clicks on "inventory management" button.
+
+- **Primary Sequence:**
+
+  1. User logs into account.
+  2. User accesses their profile.
+  3. User clicks button.
+  4. User can edit current numbers of inventory or add/remove items.
+  5. User clicks "done" button/mode
 	  
-    Primary Postconditions:
-	Updated seller page becomes visible
+- **Primary Postconditions:** Updated seller page becomes visible
     
-    Alternate Sequence :
-	1. User logs into account.
-        2. User accesses their profile.
-        3. User clicks button.
-        4. User can edit current numbers of inventory or add/remove items.
-	5. User fails to click "done" button before exiting. 
-	6. No updates are made to seller page.
+- **Alternate Sequence:**
+  1. User logs into account.
+  2. User accesses their profile.
+  3. User clicks button.
+  4. User can edit current numbers of inventory or add/remove items.
+  5. User fails to click "done" button before exiting. 
+  6. No updates are made to seller page.
   
-7.
+8. See All Seller's Items
+- **Pre-condition:** User is logged into their account on a seller's page.
+
+- **Trigger:** User presses a button that says "Display all items" located next to search bar
+
+- **Primary Sequence:**
+
+  1. User presses the display all items button
+  2. System brings the user to a page displaying all of the items offered by the seller.
+
+- **Primary Postconditions:** All items are linked to the seller, and all items linked to seller can be seen.
+
+- **Alternate Sequeunce:**
+  1. The user isn't logged into their account to view the seller's items.
+  2. Prompts the user to log into their account to view the items offered by the seller.
