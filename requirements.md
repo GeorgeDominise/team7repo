@@ -1,6 +1,13 @@
 ## Functional Requirements
 
 1. Buy Item
+2. Sell Item
+3. Add to Cart
+4. Create Account
+5. Bid on Item
+6. Add Item to Seller Store
+
+1. Buy Item
 2. *Add Pictures for Items
 3. Sell Item
 4. Login
@@ -14,7 +21,6 @@
 12. Delete Account
 13. User Profile
 14. Add item to seller store
-15. 
 
 ## Non-functional Requirements
 
@@ -57,9 +63,7 @@
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
 
-1.
-
-2. Buy Item
+1. Buy Item
 - **Pre-condition:** The customer must be logged in.
 
 - **Trigger:** Customer selects "Buy Item" option.
@@ -80,7 +84,7 @@
   1. The customer fails to fill in all necessary fields.
   2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen.
 
-3. Sell Item
+2. Sell Item
 - **Pre-condition:** The customer must be logged in.
 
 - **Trigger:** Customer selects "Sell Item" option, located at the top of the page.
@@ -95,7 +99,7 @@
   1. The seller fails to fill in all the necessary fields.
   2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen." 
 
-4. Add to Cart
+3. Add to Cart
 - **Pre-condition:** Item is selected
 
 - **Trigger:** "Add to Cart" button is clicked 
@@ -114,7 +118,7 @@
   2. The system informs the user that item has not been added to cart by displaying a message.
   
 
-5. Create Account
+4. Create Account
 - **Pre-condition:** The user must have an email account
 
 - **Trigger:** User selects "Create Account" option, located under the login screen
@@ -130,7 +134,7 @@
   1. The user fails to fill in all the necessary feilds or their email/password do not meet requirements
   2. A message saying "Please fill in all required fields" or "Enter a valid email/password"
 
-6. Bid on Item
+5. Bid on Item
 - **Pre-condition:** The user must be logged into their account
 
 - **Trigger:** User selects "Place Bid" option, located near where the "Buy" option is
@@ -146,7 +150,7 @@
   1. The user fails to fill in all the necessary feilds or places an insufficient bid
   2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
-7. Add item to seller store
+6. Add item to seller store
 
  Pre-condition: Must have created an account and be logged in.
 
@@ -170,5 +174,4 @@
 	5. User fails to click "done" button before exiting. 
 	6. No updates are made to seller page.
   
-
-8.
+7.
