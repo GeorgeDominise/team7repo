@@ -62,7 +62,15 @@ FUNCTIONAL REQUIREMENTS
 	Description: The user would be able to display all of the seller's sold items on one page after pressing on a button, such as their 'profile' or 'shop' button.
 	Idea: When looking at a user's profile, there can be a button that is connected to a shop page, such as "View all items."
 	 After clicking on it, it will display the user's dictionary of all the items being sold by the user that are availbale.
-9.
+
+9. User Ratings (George)
+	Description: The user will be able to rate a seller's efficiency and
+communication on their profile before finding an average to put on a 
+user's profile.
+	Idea: There'll be 5 interactive buttons to select from with numbers
+inside of them. They'd be organized from 1-5 and assigned each independent
+value.
+
 10.Create Account (Rohan): 
 Description: The user clicks “Create Account” and is prompted to create a username and password for future logins. Access credentials, a user role, and a security profile are all provided to the user. User roles define what actions the user has permission to perform. Security profiles define what data the user has permission to access.
 Idea: The user clicks “Create Account” and enters credentials to be able to access certain features on the website
@@ -74,6 +82,7 @@ Idea: The user clicks “Delete Account” and enters credentials to be able to 
 12.Bid on Item (Rohan): 
 Description: The user is able to click on “Bid on Item” which enables them to name a price for which they are willing to pay for a specific item. If the item listed already has a price listed, the bidder must increase the price they are willing to pay in order to secure the item. The highest bidder in the given time limit secures the item.
 Idea: Highest bidder during a specified time period buys and secures the item 
+
 
 13. Add item to seller store (Jaz)
 Description: A seller would be able to update their available inventory
@@ -89,6 +98,7 @@ Description: A profile is created for each user which displays their past
 Idea: Users can edit their personal information such as delivery addresses and
 payment info as well as check out past item history for quicker repurchasing.
 
+
 NON-FUNCTIONAL REQUIREMENTS
 1. Expected to work on multiple browsers (Maryia)
         Idea: The program should be able to run on multiple browsers (Google Chrome, Safari, Firefox) in order to
@@ -96,9 +106,13 @@ NON-FUNCTIONAL REQUIREMENTS
 2. Keep program code organized and maintainable (Kyo)
 	Idea: Code should be sorted into its respective folders. Code should all follow the same
 		formatting, so edits can be easily made in the future.
-3.Processing Time (Rohan): 
+
+3. Password Support (George)
+	Idea: Passwords must be at least 8 characters long and contain one
+capital letter, one lowercase letter, and one special key (!,*,$,?)
+
+4.Processing Time (Rohan): 
 Idea: Functions, calculations, imports, exports, etc. should all be able to execute in a timely matter, specifically less than 1.0 seconds
 
-4.
 
-===============
+
