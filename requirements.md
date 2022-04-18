@@ -12,8 +12,8 @@
 10. Logout
 11. Add to Cart
 12. Delete Account
-13.
-14. 
+13. User Profile
+14. Add item to seller store
 15. 
 
 ## Non-functional Requirements
@@ -95,7 +95,24 @@
   1. The seller fails to fill in all the necessary fields.
   2. A message saying "Please fill in all required fields marked by an asterisk (*)" is flashed to the top of the screen." 
 
-4.
+4. Add to Cart
+- **Pre-condition:** Item is selected
+
+- **Trigger:** "Add to Cart" button is clicked 
+
+- **Primary sequence:** 
+
+  1. The user clicks the "Add to cart button" 
+  2. The system informs the user that the item has been added to cart by displaying a message. 
+  3. The system asks the user if they would like to go to cart or continue shopping.
+ 
+- **Primary Postcondition:** The item has been added to cart.
+
+- **Alternate Sequence:**
+
+  1. The item that the user selected is unavailable.
+  2. The system informs the user that item has not been added to cart by displaying a message.
+  
 
 5. Create Account
 - **Pre-condition:** The user must have an email account
@@ -129,6 +146,7 @@
   1. The user fails to fill in all the necessary feilds or places an insufficient bid
   2. A message saying "Please fill in all required fields" or "Enter a sufficient bid amount" 
 
+<<<<<<< HEAD
 7. Find Items
 - **Pre-condition**
    The user must be logged into their account
@@ -146,6 +164,32 @@
   1.User inputs the name of an item and it doesn't appear on the screen.
   2.System offers alternative items that the seller provides, otherwise 
   displays not found.
+=======
+7. Add item to seller store
+
+ Pre-condition: Must have created an account and be logged in.
+
+    Trigger:Seller clicks on "inventory management" button.
+
+    Primary Sequence:
+        1. User logs into account.
+        2. User accesses their profile.
+        3. User clicks button.
+	4. User can edit current numbers of inventory or add/remove items.
+	5. User clicks "done" button/mode
+	  
+    Primary Postconditions:
+	Updated seller page becomes visible
+    
+    Alternate Sequence :
+	1. User logs into account.
+        2. User accesses their profile.
+        3. User clicks button.
+        4. User can edit current numbers of inventory or add/remove items.
+	5. User fails to click "done" button before exiting. 
+	6. No updates are made to seller page.
+  
+>>>>>>> fd60ffccee73850375015e226b5067ead75bbb25
 
 8. See All Seller's Items
 - **Pre-condition:**
