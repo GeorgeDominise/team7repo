@@ -3,66 +3,63 @@
 	<head>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
-		<meta name="viewport" content="width-device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-		<title>Team 7 Repo</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<title>Team 7's Secret Shop</title>
 	</head>
 	<body>
-		<h1 class="text-center">Team 7 Repo</h1>
+		<div class="jumbotron">
+			<h1>>Team 7's Secret Shop</h1>
+			<p>Nothing illegal to see here, folks.</p>
+		</div>
 
-		<!-- Navigation Bar -->
-		<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" "justify-content-between">
-			<a class="navbar-brand" "text-light" "mb-0 h1">Navigation</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
- 				<span class="navbar-toggler-icon"></span>
-			</button>
+		<header class="p-3 bg-dark text-white">
+			<div class="container">
+				<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+					<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+						<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+					</a>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" "text-light" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" "text-light" href="#">Shop</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" "text-light" href="#">Sell</a>
-					</li>
+					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-lg-0">
+						<li><a href="#" class="nav-link px-3 text-secondary">Home</a></li>
+						<li><a href="#" class="nav-link px-2 text-white">What's New?</a></li>
+						<li><a href="#" class="nav-link px-2 text-white">Sell</a></li>
+						<li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+						<li><a href="#" class="nav-link px-2 text-white">About</a></li>
+					</ul>
 
-					{% if login_status %}
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" "text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								{{ username }}
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" "text-light" href="#">View Profile</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" "text-light" href="#">Settings</a>
-								<a class="dropdown-item" "text-light" href="#">Log Out</a>
-							</div>
-						</li>
-					{% else %}
-						<li class="nav-item">
-							<a class="nav-link" "text-light" href="#">Sign In</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" "text-light" href="#">Register</a>
-						</li>
-					{% endif %}
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				</form>
+					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+						<input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+					</form>
+
+					<div class="text-end">
+						<button type="button" class="btn btn-outline-light me-2">Login</button>
+						<button type="button" class="btn btn-warning">Sign-up</button>
+					</div>
+				</div>
 			</div>
-		</nav>
+		</header>
 
-		{% block content %} {% endblock %}
+		{% block content %}{% endblock %}
+
+		<!-- Optional JavaScript; choose one of the two! -->
 
 		<!-- Option 1: Bootstrap Bundle with Popper -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+		<!-- Option 2: Separate Popper and Bootstrap JS -->
+		<!--
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+		-->
 	</body>
 </html>
