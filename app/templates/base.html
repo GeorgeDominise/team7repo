@@ -58,8 +58,8 @@
 							</li>
 						</ul>
 						{% else %}
-						<button type="button" class="btn btn-outline-light me-2">Login</button>
-						<button type="button" class="btn btn-warning">Sign-up</button>
+						<a class="btn btn-outline-light" href="{{ url_for('signin') }}" role="button">Sign In</a>
+						<a class="btn btn-warning" href="{{ url_for('register') }}" role="button">Register</a>
 						{% endif %}	
 					</div>
 				</div>
