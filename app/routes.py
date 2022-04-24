@@ -1,7 +1,7 @@
 from app import myapp_obj
 from flask import flash, render_template
 
-login_status = False # Temporary variable to test redirects based on whether user is logged in or not
+login_status = True # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
 
 @myapp_obj.route("/")
