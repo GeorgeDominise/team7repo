@@ -23,7 +23,7 @@
 	<body>
 
 		<!-- "VANILUXE" Logo header -->		
-		<a href="/home"><img src="https://cdn.discordapp.com/attachments/895891038047203362/967811686654439495/VANILUXE_header.png" class="img-fluid"></a>
+		<a href="{{ url_for('home') }}"><img src="https://cdn.discordapp.com/attachments/895891038047203362/967811686654439495/VANILUXE_header.png" class="img-fluid"></a>
 
 		<!-- "Navigation Bar -->
 		<header class="p-3 bg-dark text-white">
@@ -34,11 +34,11 @@
 					</a>
 
 					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-lg-0">
-						<li><a href="#" class="nav-link px-4 text-secondary">Home</a></li>
-						<li><a href="#" class="nav-link px-4 text-white">What's New?</a></li>
-						<li><a href="#" class="nav-link px-4 text-white">Shop</a></li>
-						<li><a href="#" class="nav-link px-4 text-white">FAQs</a></li>
-						<li><a href="#" class="nav-link px-4 text-white">About</a></li>
+						<li><a href="{{ url_for('home') }}" class="nav-link px-4 text-white">Home</a></li>
+						<li><a href="{{ url_for('featured') }}" class="nav-link px-4 text-white">Featured</a></li>
+						<li><a href="{{ url_for('purchase') }}" class="nav-link px-4 text-white">Shop</a></li>
+						<li><a href="{{ url_for('faqs') }}" class="nav-link px-4 text-white">FAQs</a></li>
+						<li><a href="{{ url_for('about') }}" class="nav-link px-4 text-white">About</a></li>
 					</ul>
 
 					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -48,7 +48,14 @@
 					<div class="text-end">
 						{% if login_status %}
 						<ul class="nav col-12 col-lg-auto me-lg-auto mb-5 justfy-content-center mb-lg-0">
-							<li><a href="#" class="nav-link px-4 text-white">{{ username }}</a></li>
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link dropdown-toggle px-4 text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#">Settings</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Log out</a>
+								</div>
+							</li>
 						</ul>
 						{% else %}
 						<button type="button" class="btn btn-outline-light me-2">Login</button>
