@@ -18,13 +18,14 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-		<title>Team 7's Secret Shop</title>
+		<title>VANILUXE</title>
 	</head>
 	<body>
-		<div class="container">
-			<h1 style="text-align: center">Team 7's Secret Shop</h1>
-		</div>
 
+		<!-- "VANILUXE" Logo header -->		
+		<a href="/home"><img src="https://cdn.discordapp.com/attachments/895891038047203362/967811686654439495/VANILUXE_header.png" class="img-fluid"></a>
+
+		<!-- "Navigation Bar -->
 		<header class="p-3 bg-dark text-white">
 			<div class="container">
 				<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -33,11 +34,11 @@
 					</a>
 
 					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-lg-0">
-						<li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-						<li><a href="#" class="nav-link px-2 text-white">What's New?</a></li>
-						<li><a href="#" class="nav-link px-2 text-white">Sell</a></li>
-						<li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-						<li><a href="#" class="nav-link px-2 text-white">About</a></li>
+						<li><a href="#" class="nav-link px-4 text-secondary">Home</a></li>
+						<li><a href="#" class="nav-link px-4 text-white">What's New?</a></li>
+						<li><a href="#" class="nav-link px-4 text-white">Shop</a></li>
+						<li><a href="#" class="nav-link px-4 text-white">FAQs</a></li>
+						<li><a href="#" class="nav-link px-4 text-white">About</a></li>
 					</ul>
 
 					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -47,7 +48,7 @@
 					<div class="text-end">
 						{% if login_status %}
 						<ul class="nav col-12 col-lg-auto me-lg-auto mb-5 justfy-content-center mb-lg-0">
-							<li><a href="#" class="nav-link px-2 text-white">{{ username }}</a></li>
+							<li><a href="#" class="nav-link px-4 text-white">{{ username }}</a></li>
 						</ul>
 						{% else %}
 						<button type="button" class="btn btn-outline-light me-2">Login</button>
