@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Sell Items</h1>
+<form action="" method="POST" novalidate>
+	{{ form.hidden_tag() }}
+	<p>
+		{{ form.name.label }}<br>
+		{{ form.name(size=32) }}
+	</p>
+	<p>
+		{{ form.price.label }}<br>
+		{{ form.price(size=32) }}
+	</p>
+	<p>
+		{{ form.description.label }}<br>
+		{{ form.description(size=2048) }}
+	</p>
+	<p>
+		{{ form.image_url.label }}<br>
+		{{ form.image_url(size=2048) }}
+	</p>
+	<p>{{ form.submit() }}</p>
+</form>
+
+{% endblock %}
