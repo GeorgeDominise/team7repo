@@ -1,4 +1,5 @@
 from app import myapp_obj
+from app import forms
 from flask import flash, render_template
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
@@ -32,3 +33,11 @@ def faqs():
 @myapp_obj.route("/about")
 def about():
 	return render_template("about.html", login_status=login_status)
+
+@myapp_obj.route("/sell", methods=["GET", "POST"])
+def sell():
+#	form = SellForm()
+#	if form.validate_on_submit():
+#		flash("Item put up for sale under name {}".format(form.name.data))
+#		return redirect("{{  url_for('home') }}")
+	return render_template("sell.html", login_status=login_status, form=form)
