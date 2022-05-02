@@ -1,3 +1,4 @@
+from operator import length_hint
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
@@ -9,4 +10,9 @@ class SellForm(FlaskForm):
 	image_url = StringField("Image URL")
 	submit = SubmitField("Submit")
 
-	
+class RegistrationForm(FlaskForm):
+	username = StringField("Name", validators=[DataRequired()])
+	email = StringField("Email", validators=[DataRequired()])
+	password = PasswordField("Password", validators=[DataRequired()])
+	submit = SubmitField("Submit")
+

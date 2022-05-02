@@ -1,6 +1,6 @@
 from app import myapp_obj
 from app import forms
-from flask import flash, render_template, request
+from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
 
@@ -26,15 +26,17 @@ def signin():
 
 @myapp_obj.route("/register")
 def register():
-	#form = request.form
-	#u = User(
-	#	username = form['name'],
-	#	email = form['email-address'],
-	#	password = form['password']
-	#)
-	#user.password_hash(form['password'])
-	#db.session.add(u)
-	#db.session.commit()
+	""" form = request.form
+	u = User(
+		username = form['name'],
+		email = form['email-address'],
+		password = form['password']
+	)
+	db.session.add(u)
+	db.session.commit()
+	if form.validate_on_submit():
+		flash("You have created an account".format(form.name.data))
+		return redirect("{{  url_for('login') }}") """
 	return render_template("register.html", login_status=login_status)
 
 @myapp_obj.route("/faqs")
