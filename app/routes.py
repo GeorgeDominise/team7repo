@@ -22,6 +22,13 @@ def purchase():
 
 @myapp_obj.route("/signin")
 def signin():
+	#create a form
+        # if form inputs are valid
+        # search database for username
+        # user = User.query.filter_by(...)
+        # check the password
+        # if password matches
+        # login_user(user)
 	return render_template("signin.html", login_status=login_status)
 
 @myapp_obj.route("/register")
