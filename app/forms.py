@@ -10,10 +10,3 @@ class SellForm(FlaskForm):
 	submit = SubmitField("Submit")
 
 	
-class RegisterForm(FlaskForm):
-#Allows users to make a new account
-    username = StringField("Enter your username:", validators=[DataRequired()])
-    email = StringField("Enter an email:", validators=[DataRequired()])
-    password = PasswordField("Enter a password:", validators=[DataRequired()])
-    password_ver = PasswordField("Please verify your password:", validators=[DataRequired()])
-    submit = SubmitField("Submit form")
