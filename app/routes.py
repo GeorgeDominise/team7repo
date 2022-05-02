@@ -45,6 +45,12 @@ def faqs():
 def about():
 	return render_template("about.html", login_status=login_status)
 
+
+@myapp_obj.route("/settings")
+def settings():
+	return render_template("settings.html", login_status=login_status)
+
+
 @myapp_obj.route("/sell", methods=["GET", "POST"])
 def sell():
 #	form = SellForm()
