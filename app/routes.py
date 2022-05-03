@@ -26,18 +26,26 @@ def signin():
 
 @myapp_obj.route("/register")
 def register():
-	""" form = request.form
-	u = User(
-		username = form['name'],
-		email = form['email-address'],
-		password = form['password']
-	)
-	db.session.add(u)
-	db.session.commit()
-	if form.validate_on_submit():
-		flash("You have created an account".format(form.name.data))
-		return redirect("{{  url_for('login') }}") """
 	return render_template("register.html", login_status=login_status)
+	""" 	form = forms.RegistrationForm()
+
+	if (form.validate_on_submit()): 
+		username = form.username.data
+		email = form.email.data
+		password = form.password.data
+		credentials_check = User.check_valid_credentials(username=username, email=email, password=password)
+
+		if(credentials_check == False):
+			flash('Please try again.')
+			return redirect("/register")
+			
+		user = User(username=username, email=email, password=password)
+		db.session.add(user)
+		db.session.commit()
+		flash("Account is now created. You may log in now.")
+		return redirect("/login")
+		
+	return render_template("login.html", form=form) """
 
 @myapp_obj.route("/faqs")
 def faqs():
