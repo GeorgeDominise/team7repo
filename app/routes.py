@@ -3,6 +3,7 @@ from app import forms
 from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
+from flask_login import current_user, login_user
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
@@ -26,26 +27,13 @@ def signin():
 
 @myapp_obj.route("/register")
 def register():
-	return render_template("register.html", login_status=login_status)
-	""" 	form = forms.RegistrationForm()
-
-	if (form.validate_on_submit()): 
-		username = form.username.data
-		email = form.email.data
-		password = form.password.data
-		credentials_check = User.check_valid_credentials(username=username, email=email, password=password)
-
-		if(credentials_check == False):
-			flash('Please try again.')
-			return redirect("/register")
-			
-		user = User(username=username, email=email, password=password)
-		db.session.add(user)
+	form = forms.RegistrationForm()
+	if form.validate_on_submit():
+		u = User(username=form.username.data, email=form.email.data, password=form.password.data)
+		db.session.add(u)
 		db.session.commit()
-		flash("Account is now created. You may log in now.")
-		return redirect("/login")
-		
-	return render_template("login.html", form=form) """
+		return '<h1>New user has been created!</h1>'
+	return render_template("register.html", title = 'Register', login_status=login_status)
 
 @myapp_obj.route("/faqs")
 def faqs():
