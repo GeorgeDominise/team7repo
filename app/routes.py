@@ -1,10 +1,8 @@
-import email
 from app import myapp_obj
 from app import forms
 from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
-from flask_login import current_user, login_user
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
@@ -34,7 +32,7 @@ def register():
 		db.session.add(u)
 		db.session.commit()
 		print(f"Account Successfully Created for user {username}")
-	return render_template("register.html", title = 'Register', login_status=login_status)
+	return render_template("register.html", login_status=login_status)
 
 @myapp_obj.route("/faqs")
 def faqs():
