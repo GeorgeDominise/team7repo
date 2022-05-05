@@ -1,3 +1,4 @@
+import email
 from app import myapp_obj
 from app import forms
 from flask import flash, redirect, render_template, request
@@ -29,10 +30,10 @@ def signin():
 def register():
 	form = forms.RegistrationForm()
 	if form.validate_on_submit():
-		u = User(username=form.username.data, email=form.email.data, password=form.password.data)
+		u = User(username=form.username.data, email=form.email.data, password_hash=form.password.data)
 		db.session.add(u)
 		db.session.commit()
-		return '<h1>New user has been created!</h1>'
+		print(f"Account Successfully Created for user {username}")
 	return render_template("register.html", title = 'Register', login_status=login_status)
 
 @myapp_obj.route("/faqs")
