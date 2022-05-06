@@ -1,6 +1,6 @@
 from app import myapp_obj
 from app import forms
-from flask import flash, render_template, request
+from flask import Flask, render_template, request, url_for
 #from flask_login import login_user, logout_user, login_required, current_user, UserMixin
 from flask import flash, redirect, render_template, request
 from app import db
@@ -8,10 +8,14 @@ from app.models import User
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 #from flask_login import LoginManager
-#login_manager = LoginManager()
-#login_manager.init_app(myapp_obj)
+login_manager = LoginManager()
+login_manager.init_app(myapp_obj)
 
-login_status = False # Temporary variable to test redirects based on whether user is logged in or not
+@login_manager.user_loader
+def load_user(username):
+    return User.get(username)
+
+login_status = True # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
 
 @myapp_obj.route("/")
@@ -33,11 +37,12 @@ def signin():
 	print(User.query.all())
 	form =forms.LoginForm()  
 	if form.validate_on_submit():
-		user= User.query.filter_by(username=form.username.data).first()
+		user= User.query.get(form.username.data)
 		if user:
 			if check_password_hash(user.password_hash, form.password.data):
 				login_user(user, remember = form.remember.data)
 				user.is_authenticated = True
+				user.login_status = True
 				return redirect(url_for('home'))
 			else:
 				return 'Invalid password'
@@ -84,7 +89,8 @@ def sell():
 	return render_template("sell.html", login_status=login_status, form=form)
 
 @myapp_obj.route('/logout')
-@login_required
-def logout():
+#@login_required
+def logout(): 
 	logout_user()
-	return redirect('/home')
+	login_status=False
+	return render_template("home.html", login_status=login_status)
