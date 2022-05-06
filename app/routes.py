@@ -57,6 +57,7 @@ def register():
 		db.session.add(u)
 		db.session.commit()
 		print(f"Account Successfully Created for user {username}")
+		
 	return render_template("register.html", login_status=login_status)
 
 @myapp_obj.route("/faqs")
