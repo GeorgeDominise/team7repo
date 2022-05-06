@@ -1,7 +1,6 @@
 from app import myapp_obj
 from app import forms
 from flask import Flask, render_template, request, url_for
-#from flask_login import login_user, logout_user, login_required, current_user, UserMixin
 from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
@@ -13,7 +12,7 @@ login_manager.init_app(myapp_obj)
 
 @login_manager.user_loader
 def load_user(username):
-    return User.get(username)
+	return User.get(username)
 #from flask_login import LoginManager
 
 
@@ -38,19 +37,19 @@ def purchase():
 @myapp_obj.route("/signin", methods=["GET","POST"])
 def signin():
 	login_status=False
-	form =forms.LoginForm()  
+	form=forms.LoginForm()
 	if form.validate_on_submit():
 		user= User.query.filter_by(username=form.username.data).first()
 		if user:
- 			if check_password_hash(user.password_hash, form.password.data):
-				login_user(user,remember=form.remember.data)
+			if check_password_hash(user.password_hash, form.password.data):
+				login_user(user, remember=form.remember.data)
 				login_status=True
 				return redirect(url_for('home'))
 			else:
 				return 'Invalid password'
 		else:
 			return 'Invalid username'
-	return render_template("signin.html", login_status=login_status, form = form)                      
+	return render_template("signin.html", login_status=login_status, form = form)
 
 @myapp_obj.route("/register", methods = ['GET', 'POST'])
 def register():
@@ -60,7 +59,7 @@ def register():
 		u = User(username=form.username.data, email=form.email.data, password_hash=hashed_password)
 		db.session.add(u)
 		db.session.commit()
-		print(f"Gongrats! Account Successfully Created!")
+		print(f"Congrats! Account Successfully Created!")
 		return redirect ("/signin")
 	return render_template("register.html", login_status=login_status, form=form)
 
@@ -79,7 +78,7 @@ def settings():
 	#form =forms.SettingsForm()
 	#form.username.data = username
 	#form.email.data = email
-	#form.password_hash.data = password_hash       
+	#form.password_hash.data = password_hash
 	#user = user(username=form.username.data, email=form.email.data, password_hash= form.password_hash.data)
 	#db.session.commit()
 	return render_template("settings.html", login_status=login_status)
