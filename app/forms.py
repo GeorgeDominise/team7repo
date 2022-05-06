@@ -9,4 +9,8 @@ class SellForm(FlaskForm):
 	image_url = StringField("Image URL")
 	submit = SubmitField("Submit")
 
-	
+class SettingsForm(FlaskForm):   
+	username = StringField("Username", validators=[DataRequired()])
+	email = StringField("Email", validators=[DataRequired()])
+	password_hash = PasswordField("Password", validators=[DataRequired()])
+	submit = SubmitField("Submit")	

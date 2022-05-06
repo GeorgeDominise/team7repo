@@ -1,9 +1,12 @@
 from app import myapp_obj
 from app import forms
 from flask import flash, render_template, request
+#from flask_login import login_user, logout_user, login_required, current_user, UserMixin
 from app import db
 from app.models import User
-
+#from flask_login import LoginManager
+#login_manager = LoginManager()
+#login_manager.init_app(myapp_obj)
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
 
@@ -47,9 +50,15 @@ def about():
 
 
 @myapp_obj.route("/settings")
+#@login_required
 def settings():
+	#form =forms.SettingsForm()
+	#form.username.data = username
+	#form.email.data = email
+	#form.password_hash.data = password_hash       
+	#user = user(username=form.username.data, email=form.email.data, password_hash= form.password_hash.data)
+	#db.session.commit()
 	return render_template("settings.html", login_status=login_status)
-
 
 @myapp_obj.route("/sell", methods=["GET", "POST"])
 def sell():
