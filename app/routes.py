@@ -1,9 +1,12 @@
-from app import myapp_obj
-from app import forms
+from app import myapp_obj, forms
+from app.models import User, Item
 from flask import flash, render_template
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
-username = "Team7 Shared Account"
+
+# Pernament variables
+users = User.query.all()
+items = Item.query.all()
 
 @myapp_obj.route("/")
 @myapp_obj.route("/home")
@@ -16,7 +19,23 @@ def featured():
 
 @myapp_obj.route("/purchase")
 def purchase():
-	return render_template("purchase.html", login_status=login_status)
+        return render_template("purchase.html", users=users, items=items, login_status=login_status)
+
+@myapp_obj.route("/purchase/<id>")
+def purchaseItem(id=0):
+        return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+def addToCart(id=0):
+
+        item = Item.query.filter(Item.id == id)
+        cart_item = CartItem(item=item)
+        db.session.add(cart_item)
+        db.session.commit()
+
+        return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+
+@myapp_obj.route("/purchase/buynow/<id>")
+def buyNow(id=0):
+        return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
 
 @myapp_obj.route("/signin")
 def signin():
