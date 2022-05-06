@@ -24,19 +24,20 @@ def purchase():
 def signin():
 	return render_template("signin.html", login_status=login_status)
 
-@myapp_obj.route("/register")
+@myapp_obj.route("/register", methods = ['GET', 'POST'])
 def register():
 	form = forms.RegistrationForm()
 	if form.validate_on_submit():
 		u = User(username=form.username.data, email=form.email.data, password_hash=form.password.data)
 		db.session.add(u)
 		db.session.commit()
-		print(f"Account Successfully Created for user {username}")
-	return render_template("register.html", login_status=login_status)
+		print(f"Gongrats! Account Successfully Created!")
+		return redirect ("/signin")
+	return render_template("register.html", login_status=login_status, form=form)
 
 @myapp_obj.route("/faqs")
 def faqs():
-	return render_template("faqs.html", login_status=login_status)
+	return render_template("faqs.html", login_status=login_status,)
 
 @myapp_obj.route("/about")
 def about():
