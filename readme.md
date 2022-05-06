@@ -19,7 +19,7 @@ Maryia Sakharava
 George Dominise
 - Find Items
 - See all Seller's Items
-- User Ratings (May be Changed)
+- Contact Form
 
 Rohan Maheshwari
 - Create Account
