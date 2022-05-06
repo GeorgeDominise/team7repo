@@ -3,6 +3,7 @@ from app import forms
 from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
@@ -20,16 +21,23 @@ def featured():
 def purchase():
 	return render_template("purchase.html", login_status=login_status)
 
-@myapp_obj.route("/signin")
+
+@myapp_obj.route("/signin", methods=["GET","POST"])
 def signin():
-	#create a form
-        # if form inputs are valid
-        # search database for username
-        # user = User.query.filter_by(...)
-        # check the password
-        # if password matches
-        # login_user(user)
-	return render_template("signin.html", login_status=login_status)
+	print(User.query.all())
+	form =forms.LoginForm()  
+	if form.validate_on_submit():
+		user= User.query.filter_by(username=form.username.data).first()
+		if user:
+			if check_password_hash(user.password_hash, form.password.data):
+				login_user(user, remember = form.remember.data)
+				user.is_authenticated = True
+				return redirect(url_for('home'))
+			else:
+				return 'Invalid password'
+		else:
+			return 'Invalid username'
+	return render_template("signin.html", login_status=login_status, form = form)       
 
 @myapp_obj.route("/register")
 def register():
@@ -62,3 +70,9 @@ def sell():
 #		flash("Item put up for sale under name {}".format(form.name.data))
 #		return redirect("{{  url_for('home') }}")
 	return render_template("sell.html", login_status=login_status, form=form)
+
+@myapp_obj.route('/logout')
+@login_required
+def logout():
+	logout_user()
+	return redirect('/home')
