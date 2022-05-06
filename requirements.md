@@ -173,3 +173,23 @@
 - **Alternate Sequeunce:**
   1. The user isn't logged into their account to view the seller's items.
   2. Prompts the user to log into their account to view the items offered by the seller.
+
+9. User settings
+- **Pre-condition:** User is logged into their account on their account pagee.
+
+- **Trigger:** User presses a button that says "settings"
+
+- **Primary Sequence:**
+
+  1. User presses the settings button
+  2. System brings the user to a page displaying editable acccount information such as username and password.
+  3. User can edit current information.
+  5. User clicks "done" button/mode
+
+- **Primary Postconditions:** user acocunt information fileds are updated.
+- **Alternate Sequeunce:**
+ 1. User presses the settings button
+  2. System brings the user to a page displaying editable acccount information such as username and password.
+  3. User can edit current information.
+  5. User doesn't click "done" button/mode
+  6. New information is not saved.

@@ -27,3 +27,4 @@ Rohan Maheshwari
 - Bid on Item
 
 Jaskaran Singh
+- User settings

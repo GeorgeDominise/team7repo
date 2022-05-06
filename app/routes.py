@@ -1,6 +1,6 @@
 from app import myapp_obj
 from app import forms
-from flask import flash, render_template, request
+from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
 
@@ -33,15 +33,12 @@ def signin():
 
 @myapp_obj.route("/register")
 def register():
-	#form = request.form
-	#u = User(
-	#	username = form['name'],
-	#	email = form['email-address'],
-	#	password = form['password']
-	#)
-	#user.password_hash(form['password'])
-	#db.session.add(u)
-	#db.session.commit()
+	form = forms.RegistrationForm()
+	if form.validate_on_submit():
+		u = User(username=form.username.data, email=form.email.data, password_hash=form.password.data)
+		db.session.add(u)
+		db.session.commit()
+		print(f"Account Successfully Created for user {username}")
 	return render_template("register.html", login_status=login_status)
 
 @myapp_obj.route("/faqs")
@@ -51,6 +48,12 @@ def faqs():
 @myapp_obj.route("/about")
 def about():
 	return render_template("about.html", login_status=login_status)
+
+
+@myapp_obj.route("/settings")
+def settings():
+	return render_template("settings.html", login_status=login_status)
+
 
 @myapp_obj.route("/sell", methods=["GET", "POST"])
 def sell():
