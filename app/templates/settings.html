@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Current Information</h1>
+<form action='/Current information' method='post'>
+<label>Edit:</label>
+  <p></p>
+<label>Username:</label>
+<input name='name' type='text' required>
+<p></p>
+<label>Email Address:</label>
+<input name='email' type='text' required>
+<p></p>
+<label>Password:</label>
+<input name='password_hash' type='password' required>
+<p></p>
+<input type='Submit'>
+</form>
+{% endblock %}
+
