@@ -15,7 +15,7 @@ login_manager.init_app(myapp_obj)
 def load_user(username):
     return User.get(username)
 
-login_status = True # Temporary variable to test redirects based on whether user is logged in or not
+login_status = False # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
 
 @myapp_obj.route("/")
@@ -34,7 +34,6 @@ def purchase():
 
 @myapp_obj.route("/signin", methods=["GET","POST"])
 def signin():
-	print(User.query.all())
 	form =forms.LoginForm()  
 	if form.validate_on_submit():
 		user= User.query.get(form.username.data)
