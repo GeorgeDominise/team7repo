@@ -13,8 +13,8 @@ class User(db.Model):
 	def is_authenticated(self):
         	return self.authenticated
 
-	def __repr__(self):
-		return "<User {}>".format(self.username)
+def __repr__(self):
+	return "<User {}>".format(self.username)
 
 class Item(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
