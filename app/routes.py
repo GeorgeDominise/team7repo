@@ -69,7 +69,7 @@ def sell():
 	return render_template("sell.html", login_status=login_status, form=form)
 
 @myapp_obj.route('/logout')
-@login_required
 def logout():
 	logout_user()
-	return redirect('/home')
+	login_status=False
+	return render_template("home.html", login_status=login_status)
