@@ -6,8 +6,16 @@ from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
+login_manager = LoginManager()
+login_manager.init_app(myapp_obj)
+
+@login_manager.user_loader
+def load_user(username):
+    return User.get(username)
 #from flask_login import LoginManager
+
 
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
@@ -29,18 +37,32 @@ def purchase():
 
 @myapp_obj.route("/signin", methods=["GET","POST"])
 def signin():
-	return render_template("signin.html", login_status=login_status, form = form)       
+	login_status=False
+	form =forms.LoginForm()  
+	if form.validate_on_submit():
+		user= User.query.filter_by(username=form.username.data).first()
+		if user:
+ 			if check_password_hash(user.password_hash, form.password.data):
+				login_user(user,remember=form.remember.data)
+				login_status=True
+				return redirect(url_for('home'))
+			else:
+				return 'Invalid password'
+		else:
+			return 'Invalid username'
+	return render_template("signin.html", login_status=login_status, form = form)                      
 
-@myapp_obj.route("/register")
+@myapp_obj.route("/register", methods = ['GET', 'POST'])
 def register():
 	form = forms.RegistrationForm()
 	if form.validate_on_submit():
-		u = User(username=form.username.data, email=form.email.data, password_hash=form.password.data)
+		hashed_password = generate_password_hash(form.password.data, method='sha256')
+		u = User(username=form.username.data, email=form.email.data, password_hash=hashed_password)
 		db.session.add(u)
 		db.session.commit()
-		print(f"Account Successfully Created for user {username}")
-		
-	return render_template("register.html", login_status=login_status)
+		print(f"Gongrats! Account Successfully Created!")
+		return redirect ("/signin")
+	return render_template("register.html", login_status=login_status, form=form)
 
 @myapp_obj.route("/faqs")
 def faqs():
@@ -71,6 +93,8 @@ def sell():
 	return render_template("sell.html", login_status=login_status, form=form)
 
 @myapp_obj.route('/logout')
-#@login_required
-def logout(): 
+def logout():
+	logout_user()
+	login_status=False
 	return render_template("home.html", login_status=login_status)
+
