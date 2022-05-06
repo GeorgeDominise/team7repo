@@ -10,18 +10,22 @@ class SellForm(FlaskForm):
 	image_url = StringField("Image URL")
 	submit = SubmitField("Submit")
 
-<<<<<<< HEAD
+class SettingsForm(FlaskForm):   
+	username = StringField("Username", validators=[DataRequired()])
+	email = StringField("Email", validators=[DataRequired()])
+	password_hash = PasswordField("Password", validators=[DataRequired()])
+	submit = SubmitField("Submit")	
+
 class RegistrationForm(FlaskForm):
 	username = StringField("Name", validators=[DataRequired()])
 	email = StringField("Email", validators=[DataRequired()])
 	password = PasswordField("Password", validators=[DataRequired()])
 	submit = SubmitField("Submit")
-=======
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
->>>>>>> maryia_branch_mvp
+
 
