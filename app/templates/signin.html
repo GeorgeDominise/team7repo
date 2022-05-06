@@ -2,19 +2,6 @@
 
 {% block content %}
  <div class="container">
-	<form class="form-signin" method="POST" action="/signin">
-		<h2 class="form-signin-heading">Please sign in</h2>
-		{{ form.hidden_tag() }}
-	<p>
-		{{ form.username.label }} <br>
-		{{ form.username(size = 32)}}
-	</p>
-	<p>
-		{{ form.password.label }} <br>
-		{{ form.password(size=32)}}
-	</p>
-		<p> {{form.submit()}} </p>
-	</form>
 <!-- Code goes here. No need for <!DOCTYPE html>, <html>, <head>, or <body>. -->
 
 {% endblock %}
