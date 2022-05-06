@@ -9,6 +9,10 @@ class User(db.Model):
 
 	items = db.relationship("Item", backref="author", lazy="dynamic")
 
+
+	def is_authenticated(self):
+        	return self.authenticated
+
 	def __repr__(self):
 		return "<User {}>".format(self.username)
 

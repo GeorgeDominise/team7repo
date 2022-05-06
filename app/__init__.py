@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
+
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -13,5 +14,6 @@ myapp_obj.config.from_mapping(
 )
 
 db = SQLAlchemy(myapp_obj)
+
 
 from app import routes, models
