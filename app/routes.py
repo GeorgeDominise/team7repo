@@ -5,6 +5,13 @@ from app import db
 from app.models import User
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
+login_manager = LoginManager()
+login_manager.init_app(myapp_obj)
+
+@login_manager.user_loader
+def load_user(username):
+    return User.get(username)
+
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
 username = "Team7 Shared Account"
 
@@ -24,7 +31,6 @@ def purchase():
 
 @myapp_obj.route("/signin", methods=["GET","POST"])
 def signin():
-	print(User.query.all())
 	form =forms.LoginForm()  
 	if form.validate_on_submit():
 		user= User.query.filter_by(username=form.username.data).first()
@@ -32,6 +38,7 @@ def signin():
 			if check_password_hash(user.password_hash, form.password.data):
 				login_user(user, remember = form.remember.data)
 				user.is_authenticated = True
+				login_status=True
 				return redirect(url_for('home'))
 			else:
 				return 'Invalid password'
