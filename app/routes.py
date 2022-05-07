@@ -1,3 +1,4 @@
+from numpy import product
 from app import myapp_obj
 from app import forms
 from flask import Flask, render_template, request, url_for
@@ -137,5 +138,15 @@ def contactform():
 		flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
 		return redirect ("/contact")
 	return render_template("contact.html", login_status=login_status, form=form)
+
+@myapp_obj.route("/reviews", methods = ['GET', 'POST'])
+def reviewform():
+	form = forms.ReviewForm()
+	if form.validate_on_submit():
+		username=form.Username.data
+		product=form.Product.data
+		review=form.Review.data
+		return redirect("/reviews")
+	return render_template("reviews.html", login_status=login_status, form=form)
 
 #@myapp_obj.route("/findItems", )
