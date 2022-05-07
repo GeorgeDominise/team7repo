@@ -104,8 +104,23 @@ def sell():
     return render_template("sell.html", login_status=login_status, form=form)
 
 
+
 @myapp_obj.route('/logout')
 def logout():
-    logout_user()
-    login_status = False
-    return render_template("home.html", login_status=login_status)
+
+	logout_user()
+	login_status=False
+	return render_template("home.html", login_status=login_status)
+
+@myapp_obj.route("/contact", methods = ['GET', 'POST'])
+def contactform():
+	form = forms.ContactForm()
+	if form.validate_on_submit():
+		FirstName=form.FirstName.data
+		LastName=form.LastName.data
+		Message=form.Message.data
+		flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
+		return redirect ("/contact")
+	return render_template("contact.html", login_status=login_status, form=form)
+
+#@myapp_obj.route("/findItems", )
