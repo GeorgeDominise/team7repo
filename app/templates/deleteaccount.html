@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Delete Account Here</h1>
+    <form action='/deleteaccount' method='post'>
+        {{ deleteform.hidden_tag() }}
+    <p>
+        {{ deleteform.username.label() }}
+        {{ deleteform.username() }}
+    </p>
+    <p>
+        {{ deleteform.email.label() }}
+        {{ deleteform.email() }}
+    </p>
+    <p>
+        {{ deleteform.password.label() }}
+        {{ deleteform.password() }}
+    </p>
+    <p>   
+        {{ deleteform.submit() }}
+    </p>  
+    </form>
+{% endblock %}
