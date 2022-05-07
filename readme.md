@@ -16,7 +16,7 @@ To run the project navigate into the project directory and run "python3 run.py" 
 - In order to sell an item (currently), use ipython3 and follow these steps: 
 -    from app import db
 -    from app.models import User, Item
--    # If already created user, find user with User.query.all(). If not, create user using Register button.
+-    // If already created user, find user with User.query.all(). If not, create user using Register button.
 -    i = Item(name="name", price=0, description="description", image_url="image url", author=user)
 -    db.session.add(i)
 -    db.session.commit()
