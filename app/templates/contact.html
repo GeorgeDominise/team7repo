@@ -5,7 +5,7 @@
 <h1>Contact Form</h1>
 
 <h2>Please fill out the form below!</h2>
-    <form action='/Contact' method='post'>
+    <form action='/contactform' method='post'>
         <label>First Name:</label>
         <input name='name' type='text' required>
         <p></p>
@@ -18,5 +18,16 @@
         <label>Your Message:</label>
         <textarea id="message" name="message" placeholder="Write something..." style="height:200px"></textarea>
         <input type='Submit'>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %} 
+
     </form>
 {% endblock %}

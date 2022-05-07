@@ -73,10 +73,10 @@ def sell():
 def contactform():
 	form = forms.ContactForm()
 	if form.validate_on_submit():
-		u = User(FirstName=form.FirstName.data, LastName=form.LastName.data, message=form.Message.data)
-		db.session.add(u)
-		db.session.commit()
-		print(f"Thank you for submitting a contact form! We'll get back with you as soon as we can.")
+		FirstName=form.FirstName.data
+		LastName=form.LastName.data
+		message=form.Message.data
+		flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
 		return redirect ("/contactform")
 	return render_template("contactform.html", login_status=login_status, form=form)
 
