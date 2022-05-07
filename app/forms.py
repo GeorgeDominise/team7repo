@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from operator import length_hint
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
@@ -23,3 +24,8 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+class ContactForm(FlaskForm):
+	FirstName = StringField("First Name: ", validators=[DataRequired()])
+	LastName = StringField("Last Name: ", validators=[DataRequired()])
+	Message = StringField("Message: ", validators=[DataRequired()])	
+	submit = SubmitField("Submit")
