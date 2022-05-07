@@ -93,22 +93,7 @@ def register():
     return render_template("register.html", login_status=login_status, form=form)
 
 
-@myapp_obj.route("/deleteaccount", methods = ['GET', 'POST'])
-def deleteaccount():
-    global login_status
-    deleteform = forms.DeleteForm()
-    print("byebye")
-    if deleteform.validate_on_submit():
-        u= User.query.filter_by(username=deleteform.username.data).first()
-        db.session.delete(u)
-        db.session.commit()
-        login_status = False
-        print(f"Account Successfully Deleted!")
-        return redirect("/")
-    print("Delete Account Ends Here!")
-    return render_template("deleteaccount.html", deleteform=deleteform)
-=======
-@myapp_obj.route("/deleteaccount", methods=["GET", "POST"])
+@myapp_obj.route("/deleteaccount", methods=["GET","POST"])
 def deleteaccount():
     global login_status
     deleteForm = forms.DeleteForm()
