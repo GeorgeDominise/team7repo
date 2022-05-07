@@ -69,15 +69,15 @@ def sell():
 #		return redirect("{{  url_for('home') }}")
 	return render_template("sell.html", login_status=login_status, form=form)
 
-@myapp_obj.route("/contactform", methods = ['GET', 'POST'])
+@myapp_obj.route("/contact", methods = ['GET', 'POST'])
 def contactform():
 	form = forms.ContactForm()
 	if form.validate_on_submit():
 		FirstName=form.FirstName.data
 		LastName=form.LastName.data
-		message=form.Message.data
+		Message=form.Message.data
 		flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
-		return redirect ("/contactform")
-	return render_template("contactform.html", login_status=login_status, form=form)
+		return redirect ("/contact")
+	return render_template("contact.html", login_status=login_status, form=form)
 
 #@myapp_obj.route("/findItems", )
