@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Contact Form</h1>
+
+<h2>Please fill out the form below!</h2>
+    <form action='/Contact' method='post'>
+        <label>First Name:</label>
+        <input name='name' type='text' required>
+        <p></p>
+        <label>Last Name:</label>
+        <input name='name' type='text' required>
+        <p></p>
+        <label>Subject:</Label>
+        <input text='text' type='text' required>
+        <p></p>
+        <label>Your Message:</label>
+        <textarea id="message" name="message" placeholder="Write something..." style="height:200px"></textarea>
+        <input type='Submit'>
+    </form>
+{% endblock %}
