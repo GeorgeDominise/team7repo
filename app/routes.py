@@ -15,7 +15,9 @@ login_manager.init_app(myapp_obj)
 def load_user(username):
     return User.get(username)
 
-login_status = False # Temporary variable to test redirects based on whether user is logged in or not
+
+# Temporary variable to test redirects based on whether user is logged in or not
+login_status = False
 
 # Pernament variables
 users = User.query.all()
@@ -35,42 +37,48 @@ def featured():
 
 @myapp_obj.route("/purchase")
 def purchase():
-        return render_template("purchase.html", users=users, items=items, login_status=login_status)
+    return render_template("purchase.html", users=users, items=items, login_status=login_status)
+
 
 @myapp_obj.route("/purchase/<id>")
 def purchaseItem(id=0):
-        return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+    return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+
+
 def addToCart(id=0):
 
-        item = Item.query.filter(Item.id == id)
-        cart_item = CartItem(item=item)
-        db.session.add(cart_item)
-        db.session.commit()
+    item = Item.query.filter(Item.id == id)
+    cart_item = CartItem(item=item)
+    db.session.add(cart_item)
+    db.session.commit()
 
-        return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+    return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+
 
 @myapp_obj.route("/purchase/buynow/<id>")
 def buyNow(id=0):
-        return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
+    return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
+
 
 @myapp_obj.route("/signin", methods=["GET", "POST"])
 def signin():
-	global login_status
-	form=forms.LoginForm()
-	if form.validate_on_submit():
-		user= User.query.filter_by(username=form.username.data).first()
-		if user:
-			if check_password_hash(user.password_hash, form.password.data):
-				#login_user(user, remember=form.remember_me.data)
-				login_status=True
-				return redirect('/')
-			else:
-				return 'Invalid password'
-		else:
-			return 'Invalid username'
-	return render_template("signin.html", login_status=login_status, form = form)
+    global login_status
+    form = forms.LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            if check_password_hash(user.password_hash, form.password.data):
+                #login_user(user, remember=form.remember_me.data)
+                login_status = True
+                return redirect('/')
+            else:
+                return 'Invalid password'
+        else:
+            return 'Invalid username'
+    return render_template("signin.html", login_status=login_status, form=form)
 
-@myapp_obj.route("/register", methods = ['GET', 'POST'])
+
+@myapp_obj.route("/register", methods=['GET', 'POST'])
 def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
@@ -85,6 +93,7 @@ def register():
     return render_template("register.html", login_status=login_status, form=form)
 
 
+<<<<<<< HEAD
 @myapp_obj.route("/deleteaccount", methods = ['GET', 'POST'])
 def deleteaccount():
     global login_status
@@ -99,6 +108,26 @@ def deleteaccount():
         return redirect("/")
     print("Delete Account Ends Here!")
     return render_template("deleteaccount.html", deleteform=deleteform)
+=======
+@myapp_obj.route("/deleteaccount", methods=["GET", "POST"])
+def deleteaccount():
+    global login_status
+    deleteForm = forms.DeleteForm()
+    if deleteForm.validate_on_submit():
+        user = User.query.filter_by(username=deleteForm.username.data).first()
+        if user:
+            if check_password_hash(user.password_hash, deleteForm.password.data):
+                #login_user(user, remember=form.remember_me.data)
+                login_status = False
+                db.session.delete(user)
+                db.session.commit()
+                return redirect('/')
+            else:
+                return 'Invalid password'
+        else:
+            return 'Invalid username'
+    return render_template("settings.html", login_status=login_status, form=deleteForm)
+>>>>>>> c9ee648fbd74c2904c180d6c306236bd067740c1
 
 
 @myapp_obj.route("/faqs")
@@ -111,7 +140,11 @@ def about():
     return render_template("about.html", login_status=login_status)
 
 
+<<<<<<< HEAD
 @myapp_obj.route("/settings", methods = ['GET', 'POST'])
+=======
+@myapp_obj.route("/settings", methods=["GET", "POST"])
+>>>>>>> c9ee648fbd74c2904c180d6c306236bd067740c1
 # @login_required
 def settings():
     global login_status
@@ -146,33 +179,34 @@ def sell():
     return render_template("sell.html", login_status=login_status, form=form)
 
 
-
 @myapp_obj.route('/logout')
 def logout():
 
-	logout_user()
-	login_status=False
-	return render_template("home.html", login_status=login_status)
+    logout_user()
+    login_status = False
+    return render_template("home.html", login_status=login_status)
 
-@myapp_obj.route("/contact", methods = ['GET', 'POST'])
+
+@myapp_obj.route("/contact", methods=['GET', 'POST'])
 def contactform():
-	form = forms.ContactForm()
-	if form.validate_on_submit():
-		FirstName=form.FirstName.data
-		LastName=form.LastName.data
-		Message=form.Message.data
-		flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
-		return redirect ("/contact")
-	return render_template("contact.html", login_status=login_status, form=form)
+    form = forms.ContactForm()
+    if form.validate_on_submit():
+        FirstName = form.FirstName.data
+        LastName = form.LastName.data
+        Message = form.Message.data
+        flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
+        return redirect("/contact")
+    return render_template("contact.html", login_status=login_status, form=form)
 
-@myapp_obj.route("/reviews", methods = ['GET', 'POST'])
+
+@myapp_obj.route("/reviews", methods=['GET', 'POST'])
 def reviewform():
-	form = forms.ReviewForm()
-	if form.validate_on_submit():
-		username=form.Username.data
-		product=form.Product.data
-		review=form.Review.data
-		return redirect("/reviews")
-	return render_template("reviews.html", login_status=login_status, form=form)
+    form = forms.ReviewForm()
+    if form.validate_on_submit():
+        username = form.Username.data
+        product = form.Product.data
+        review = form.Review.data
+        return redirect("/reviews")
+    return render_template("reviews.html", login_status=login_status, form=form)
 
-#@myapp_obj.route("/findItems", )
+# @myapp_obj.route("/findItems", )
