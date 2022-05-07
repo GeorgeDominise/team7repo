@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Post a Review!</h1>
+
+    <form action='/reviews' method='post'>
+        <label>Username:</label>
+        <input name='username' type='text' required>
+        <p></p>
+        <label>Product:</label>
+        <input name='name' type='text' required>
+        <p></p>
+        <label>Review:</Label>
+        <textarea id="message" name="message" placeholder="Write a Review..." style="height:200px"></textarea>
+        <p></p>
+        <input type='Submit'>
+    </form>
+
+{% endblock %}

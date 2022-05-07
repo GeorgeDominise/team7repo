@@ -2,6 +2,29 @@
 
 {% block content %}
 
-<!-- Code goes here. No need for <!DOCTYPE html>, <html>, <head>, or <body>. -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/purchase.css') }}">
+
+<div class="shop-items">
+	<div class="container-fluid">
+		<div class="row">
+			{% for item in items %}
+			<div class="col-md-3 col-sm-6">
+				<div class="item">
+					<div class="image">
+						<img class="img img-responsive full-width" src="{{ item.image_url }}" alt="">
+					</div>
+					<div class="item-dtls">
+						<h4><a href="{{ url_for('purchaseItem', id=item.id) }}">{{ item.name }}</a></h4>
+						<span class="price black">${{ item.price }}</span>
+					</div>
+					<div class="ecom bg-black">
+						<a class="btn btn-black" href="#" role="button">Add to cart</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
 
 {% endblock %}

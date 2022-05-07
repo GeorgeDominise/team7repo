@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Current Information</h1>
-<form action='/Current information' method='post'>
-<label>Edit:</label>
-  <p></p>
-<label>Username:</label>
-<input name='name' type='text' required>
-<p></p>
-<label>Email Address:</label>
-<input name='email' type='text' required>
-<p></p>
-<label>Password:</label>
-<input name='password_hash' type='password' required>
-<p></p>
-<input type='Submit'>
+<h1>Edit Information</h1>
+<form action='/settings' method='post'>
+    {{ form.hidden_tag() }}
+<p>
+    {{ form.username.label() }}
+    {{ form.username() }}
+</p>
+<p>
+    {{ form.email.label() }}
+    {{ form.email() }}
+</p>
+<p>
+    {{ form.password.label() }}
+    {{ form.password() }}
+</p>
+<p>   
+    {{ form.submit() }}
+</p>  
 </form>
 
 <h1>Delete Account Here</h1>
