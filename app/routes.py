@@ -85,24 +85,20 @@ def register():
     return render_template("register.html", login_status=login_status, form=form)
 
 
-@myapp_obj.route("/deleteaccount", methods=["GET","POST"])
+@myapp_obj.route("/deleteaccount", methods = ['GET', 'POST'])
 def deleteaccount():
-	global login_status
-	deleteForm=forms.DeleteForm()
-	if deleteForm.validate_on_submit():
-		user= User.query.filter_by(username=deleteForm.username.data).first()
-		if user:
-			if check_password_hash(user.password_hash, deleteForm.password.data):
-				#login_user(user, remember=form.remember_me.data)
-				login_status=False
-				db.session.delete(user)
-				db.session.commit()
-				return redirect('/')
-			else:
-				return 'Invalid password'
-		else:
-			return 'Invalid username'
-	return render_template("settings.html", login_status=login_status, form = deleteForm)
+    global login_status
+    deleteform = forms.DeleteForm()
+    print("byebye")
+    if deleteform.validate_on_submit():
+        u= User.query.filter_by(username=deleteform.username.data).first()
+        db.session.delete(u)
+        db.session.commit()
+        login_status = False
+        print(f"Account Successfully Deleted!")
+        return redirect("/")
+    print("Delete Account Ends Here!")
+    return render_template("deleteaccount.html", deleteform=deleteform)
 
 
 @myapp_obj.route("/faqs")
@@ -115,9 +111,11 @@ def about():
     return render_template("about.html", login_status=login_status)
 
 
-@myapp_obj.route("/settings")
+@myapp_obj.route("/settings", methods = ['GET', 'POST'])
 # @login_required
 def settings():
+    global login_status
+    deleteform = forms.DeleteForm()
     form = forms.RegistrationForm()
     if form.validate_on_submit():
         hashed_password = generate_password_hash(
@@ -126,7 +124,17 @@ def settings():
                  password_hash=hashed_password)
         db.session.commit()
         return redirect("/home")
-    return render_template("settings.html", login_status=login_status, form=form)
+    print("byebye")
+    if deleteform.validate_on_submit():
+        print("hihi")
+        u = User(username=deleteform.username.data, email=deleteform.email.data, password_hash=deleteform.password.data)
+        db.session.delete(u)
+        db.session.commit()
+        print('hihihihi')
+        login_status = False
+        print(f"Account Successfully Deleted!")
+        return redirect("/")
+    return render_template("settings.html", login_status=login_status, form=form, deleteform=deleteform)
 
 
 @myapp_obj.route("/sell", methods=["GET", "POST"])

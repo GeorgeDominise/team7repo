@@ -29,7 +29,7 @@ class DeleteForm(FlaskForm):
 	username = StringField("Name", validators=[DataRequired()])
 	email = StringField("Email", validators=[DataRequired()])
 	password = PasswordField("Password", validators=[DataRequired()])
-	submit = SubmitField("Submit")
+	submit = SubmitField("Delete Account")
 
 class ContactForm(FlaskForm):
 	FirstName = StringField("First Name: ", validators=[DataRequired()])
