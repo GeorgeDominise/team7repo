@@ -1,4 +1,3 @@
-from numpy import product
 from app import myapp_obj
 from app import forms
 from flask import Flask, render_template, request, url_for
@@ -56,7 +55,6 @@ def buyNow(id=0):
 
 @myapp_obj.route("/signin", methods=["GET", "POST"])
 def signin():
-<<<<<<< HEAD
 	global login_status
 	form=forms.LoginForm()
 	if form.validate_on_submit():
@@ -73,25 +71,6 @@ def signin():
 	return render_template("signin.html", login_status=login_status, form = form)
 
 @myapp_obj.route("/register", methods = ['GET', 'POST'])
-=======
-    login_status = False
-    form = forms.LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user:
-            if check_password_hash(user.password_hash, form.password.data):
-                login_user(user, remember=form.remember.data)
-                login_status = True
-                return redirect(url_for('home'))
-            else:
-                return 'Invalid password'
-        else:
-            return 'Invalid username'
-    return render_template("signin.html", login_status=login_status, form=form)
-
-
-@myapp_obj.route("/register", methods=['GET', 'POST'])
->>>>>>> 4d05280d9e5521e82c4c7f0373143209827f344a
 def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
