@@ -3,7 +3,7 @@ from app import forms
 from flask import Flask, render_template, request, url_for
 from flask import flash, redirect, render_template, request
 from app import db
-from app.models import User, Items
+from app.models import User, Item
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
