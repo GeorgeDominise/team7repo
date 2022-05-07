@@ -44,7 +44,6 @@ def signin():
 			if check_password_hash(user.password_hash, form.password.data):
 				#login_user(user, remember=form.remember_me.data)
 				login_status=True
-				print("hihihihi")
 				return redirect('/')
 			else:
 				return 'Invalid password'
@@ -63,6 +62,26 @@ def register():
 		print(f"Congrats! Account Successfully Created!")
 		return redirect ("/signin")
 	return render_template("register.html", login_status=login_status, form=form)
+
+@myapp_obj.route("/deleteaccount", methods=["GET","POST"])
+def deleteaccount():
+	global login_status
+	deleteForm=forms.DeleteForm()
+	if deleteForm.validate_on_submit():
+		user= User.query.filter_by(username=deleteForm.username.data).first()
+		if user:
+			if check_password_hash(user.password_hash, deleteForm.password.data):
+				#login_user(user, remember=form.remember_me.data)
+				login_status=False
+				db.session.delete(user)
+				db.session.commit()
+				return redirect('/')
+			else:
+				return 'Invalid password'
+		else:
+			return 'Invalid username'
+	return render_template("settings.html", login_status=login_status, form = deleteForm)
+
 
 @myapp_obj.route("/faqs")
 def faqs():
