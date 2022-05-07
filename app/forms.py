@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from operator import length_hint
+from wsgiref.validate import validator
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, InputRequired, Email, Length
@@ -29,3 +30,9 @@ class ContactForm(FlaskForm):
 	LastName = StringField("Last Name: ", validators=[DataRequired()])
 	Message = StringField("Message: ", validators=[DataRequired()])	
 	submit = SubmitField("Submit")
+
+class ReviewForm(FlaskForm):
+	Username = StringField('Username: ', validators=[DataRequired()])
+	Product = StringField("Product Name: ", validators=[DataRequired()])
+	Review = StringField("Review: ", validators=[DataRequired()])
+

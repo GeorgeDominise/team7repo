@@ -1,3 +1,4 @@
+from numpy import product
 from app import myapp_obj
 from app import forms
 from flask import Flask, render_template, request, url_for
@@ -91,14 +92,12 @@ def sell():
 #		return redirect("{{  url_for('home') }}")
 	return render_template("sell.html", login_status=login_status, form=form)
 
-<<<<<<< HEAD
 @myapp_obj.route('/logout')
 def logout():
 	logout_user()
 	login_status=False
 	return render_template("home.html", login_status=login_status)
 
-=======
 @myapp_obj.route("/contact", methods = ['GET', 'POST'])
 def contactform():
 	form = forms.ContactForm()
@@ -110,5 +109,12 @@ def contactform():
 		return redirect ("/contact")
 	return render_template("contact.html", login_status=login_status, form=form)
 
-#@myapp_obj.route("/findItems", )
->>>>>>> GDominise
+@myapp_obj.route("/reviews", methods = ['GET', 'POST'])
+def reviewform():
+	form = forms.ReviewForm()
+	if form.validate_on_submit():
+		username=form.Username.data
+		product=form.Product.data
+		review=form.Review.data
+		return redirect("/reviews")
+	return render_template("reviews.html", login_status=login_status, form=form)
