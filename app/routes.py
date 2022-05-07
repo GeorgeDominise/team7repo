@@ -36,15 +36,16 @@ def purchase():
 
 @myapp_obj.route("/signin", methods=["GET","POST"])
 def signin():
-	login_status=False
+	global login_status
 	form=forms.LoginForm()
 	if form.validate_on_submit():
 		user= User.query.filter_by(username=form.username.data).first()
 		if user:
 			if check_password_hash(user.password_hash, form.password.data):
-				login_user(user, remember=form.remember.data)
+				#login_user(user, remember=form.remember_me.data)
 				login_status=True
-				return redirect(url_for('home'))
+				print("hihihihi")
+				return redirect('/')
 			else:
 				return 'Invalid password'
 		else:
