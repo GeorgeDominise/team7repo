@@ -14,7 +14,7 @@ login_manager.init_app(myapp_obj)
 def load_user(username):
 	return User.get(username)
 #from flask_login import LoginManager
-
+# Bidders = {}
 
 
 login_status = False # Temporary variable to test redirects based on whether user is logged in or not
@@ -67,7 +67,6 @@ def register():
 def deleteaccount():
     global login_status
     deleteform = forms.DeleteForm()
-    print("byebye")
     if deleteform.validate_on_submit():
         u= User.query.filter_by(username=deleteform.username.data).first()
         db.session.delete(u)
@@ -78,6 +77,28 @@ def deleteaccount():
     print("Delete Account Ends Here!")
     return render_template("deleteaccount.html", deleteform=deleteform)
 
+# @myapp_obj.route("/bid")
+# def highest_bidder():
+#     max_value = max(Bidders.values())
+#     max_name = max(Bidders, key=Bidders.get)
+#     print(f"The Winner is {max_name} with an amount of {max_value}")
+
+# bidding_finished = False
+# while bidding_finished == False:
+#     name = input("What is your name: ")
+
+#     try:
+#         amount = float(input("What is the amount you want to bid $: "))
+#     except:
+#         amount = float(input("Please enter the amount in numbers $: "))
+#     Bidders[name] = amount
+#     ask = input("Are there other Bidders? Yes or No ").lower()
+#     if ask == "no":
+#         bidding_finished = True
+#         highest_bidder()
+#         break
+
+#     return render_template("bid.html", login_status=login_status)
 
 @myapp_obj.route("/faqs")
 def faqs():
