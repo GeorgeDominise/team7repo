@@ -22,7 +22,7 @@ login_status = False
 # Pernament variables
 users = User.query.all()
 items = Item.query.all()
-
+Bidders = {}
 
 @myapp_obj.route("/")
 @myapp_obj.route("/home")
@@ -59,6 +59,28 @@ def addToCart(id=0):
 def buyNow(id=0):
     return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
 
+# @myapp_obj.route("/bid")
+# def highest_bidder():
+#     max_value = max(Bidders.values())
+#     max_name = max(Bidders, key=Bidders.get)
+#     print(f"The Winner is {max_name} with an amount of {max_value}")
+
+# bidding_finished = False
+# while bidding_finished == False:
+#     name = input("What is your name: ")
+
+#     try:
+#         amount = float(input("What is the amount you want to bid $: "))
+#     except:
+#         amount = float(input("Please enter the amount in numbers $: "))
+#     Bidders[name] = amount
+#     ask = input("Are there other Bidders? Yes or No ").lower()
+#     if ask == "no":
+#         bidding_finished = True
+#         highest_bidder()
+#         break
+
+#     return render_template("bid.html", login_status=login_status)
 
 @myapp_obj.route("/signin", methods=["GET", "POST"])
 def signin():
