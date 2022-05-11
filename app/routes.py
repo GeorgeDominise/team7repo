@@ -132,12 +132,19 @@ def settings():
 
 
 @myapp_obj.route("/sell", methods=["GET", "POST"])
+# @login_required
 def sell():
-    #	form = SellForm()
-    #	if form.validate_on_submit():
-    #		flash("Item put up for sale under name {}".format(form.name.data))
-    #		return redirect("{{  url_for('home') }}")
-    return render_template("sell.html", login_status=login_status, form=form)
+	global items
+	form = forms.SellForm()
+	print("Reached right outside the 'form.validate_on_submit()' method.")
+	if form.validate_on_submit():
+		print("Reached inside the 'form.validate_on_submit()' method.")
+		i = Item(name=form.name.data, price=form.price.data, description=form.description.data, image_url=form.image_url.data)
+		db.session.add(i)
+		db.session.commit()
+		items = Item.query.all()
+		return redirect("/purchase/" + str(i.id))
+	return render_template("sell.html", login_status=login_status, form=form)
 
 
 @myapp_obj.route('/logout')
