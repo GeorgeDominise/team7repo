@@ -14,12 +14,13 @@ myapp_obj.config.from_mapping(
 	SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
 )
 
-search = Search(myapp_obj)
+db = SQLAlchemy(myapp_obj)
+
+search = Search(db=db)
 search.init_app(myapp_obj)
 search.create_index(update=True)
 MSEARCH_INDEX_NAME = os.path.join(basedir, "msearch")
 MSEARCH_PRIMARY_KEY = "id"
 MSEARCH_ENABLE = True
 
-db = SQLAlchemy(myapp_obj)
 from app import routes, models

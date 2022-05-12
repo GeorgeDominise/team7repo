@@ -119,10 +119,6 @@ def about():
 
 @myapp_obj.route("/search/<query>")
 def search():
-	if query = "":
-		redirect("/purchase")
-	else:
-		items = Item.query.filter_by(item=query
 	return render_template("search.html", login_status=login_status, query=query)
 
 @myapp_obj.route("/settings", methods=["GET", "POST"])

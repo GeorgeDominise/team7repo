@@ -16,6 +16,8 @@ class User(db.Model):
 		return "<User {}>".format(self.username)
 
 class Item(db.Model):
+	__searchable__ = ["name", "description"]
+
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(128), index=True)
 	price = db.Column(db.Integer, index=True)
