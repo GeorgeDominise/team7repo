@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
+from flask_msearch import Search
 
 import os
 
@@ -14,4 +15,12 @@ myapp_obj.config.from_mapping(
 )
 
 db = SQLAlchemy(myapp_obj)
+
+search = Search(db=db)
+search.init_app(myapp_obj)
+search.create_index(update=True)
+MSEARCH_INDEX_NAME = os.path.join(basedir, "msearch")
+MSEARCH_PRIMARY_KEY = "id"
+MSEARCH_ENABLE = True
+
 from app import routes, models

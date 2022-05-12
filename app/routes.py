@@ -57,7 +57,15 @@ def addToCart(id=0):
 
 @myapp_obj.route("/purchase/buynow/<id>")
 def buyNow(id=0):
-    return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
+	print("Reached outside the request.method if statement")
+	if request.method == "POST":
+		print("Reached inside the request.method if statement")
+		item = Item.query.filter_by(id=id).first()
+		db.session.delete(item)
+		db.session.commit()
+		return redirect("/")
+
+	return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
 
 # @myapp_obj.route("/bid")
 # def highest_bidder():
@@ -139,6 +147,10 @@ def about():
     return render_template("about.html", login_status=login_status)
 
 
+@myapp_obj.route("/search/<query>")
+def search():
+	return render_template("search.html", login_status=login_status, query=query)
+
 @myapp_obj.route("/settings", methods=["GET", "POST"])
 # @login_required
 def settings():
@@ -154,12 +166,19 @@ def settings():
 
 
 @myapp_obj.route("/sell", methods=["GET", "POST"])
+# @login_required
 def sell():
-    #	form = SellForm()
-    #	if form.validate_on_submit():
-    #		flash("Item put up for sale under name {}".format(form.name.data))
-    #		return redirect("{{  url_for('home') }}")
-    return render_template("sell.html", login_status=login_status, form=form)
+	global items
+	form = forms.SellForm()
+	print("Reached right outside the 'form.validate_on_submit()' method.")
+	if form.validate_on_submit():
+		print("Reached inside the 'form.validate_on_submit()' method.")
+		i = Item(name=form.name.data, price=form.price.data, description=request.form["description"], image_url=form.image_url.data)
+		db.session.add(i)
+		db.session.commit()
+		items = Item.query.all()
+		return redirect("/purchase/" + str(i.id))
+	return render_template("sell.html", login_status=login_status, form=form)
 
 
 @myapp_obj.route('/logout')
