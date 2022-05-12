@@ -140,7 +140,7 @@ def about():
 
 
 @myapp_obj.route("/settings", methods=["GET", "POST"])
-# @login_required
+@login_required
 def settings():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
@@ -163,6 +163,7 @@ def sell():
 
 
 @myapp_obj.route('/logout')
+@login_required
 def logout():
 
     logout_user()
@@ -193,3 +194,10 @@ def reviewform():
     return render_template("reviews.html", login_status=login_status, form=form)
 
 # @myapp_obj.route("/findItems", )
+
+#@myapp_obj.route('/addToCart', methods=['POST'])
+#@login_required
+#def addToCart():
+	
+	
+	
