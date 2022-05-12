@@ -14,17 +14,19 @@
 	                	<div class="col-md-6">
         	        		<div class="small mb-1">ITEM ID:</div>
 					<h5>{{ form.name.label }}</h5>
-                        		<h1 class="display-5 fw-bolder">{{ form.name(size=8) }}</h1>
+                        		<h1 class="display-5 fw-bolder">{{ form.name(size=16) }}</h1>
                                 	<div class="fs-5 mb-5">
 	                                 	<span>
 							<h5>{{ form.price.label }}</h5>
-							{{ form.price(size=8) }}
+							${{ form.price(size=8) }}
 						</span>
 	                                </div>
 					<h5>
 	                                	<p class="lead">
-							{{ form.description.label }} <br>
-							{{ form.description(size=8) }}
+							<div class="form-group">
+								<label for="description">Description</label>
+								<textarea class="form-control" name="description" rows="3"></textarea>
+							</div>
 						</p>
 					</h5>
 	                                <div class="d-flex">

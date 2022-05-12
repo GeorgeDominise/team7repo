@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired, InputRequired, Email, Length
 class SellForm(FlaskForm):
 	name = StringField("Name", validators=[DataRequired()])
 	price = FloatField("Price", validators=[DataRequired()])
-	description = StringField("Description")
+#	description = StringField("Description")
 	image_url = StringField("Image URL", validators=[DataRequired()])
 	submit = SubmitField("Sell Item")
 
