@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, url_for
 from flask import flash, redirect, render_template, request
 from app import db
 from app.models import User, Item
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 login_manager = LoginManager()
@@ -13,7 +13,7 @@ login_manager.init_app(myapp_obj)
 
 @login_manager.user_loader
 def load_user(username):
-    return User.get(username)
+    return User.query.get(username)
 
 
 # Temporary variable to test redirects based on whether user is logged in or not
@@ -90,7 +90,7 @@ def signin():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
             if check_password_hash(user.password_hash, form.password.data):
-                #login_user(user, remember=form.remember_me.data)
+                login_user(user, remember=form.remember_me.data)
                 login_status = True
                 return redirect('/')
             else:
@@ -140,7 +140,7 @@ def about():
 
 
 @myapp_obj.route("/settings", methods=["GET", "POST"])
-# @login_required
+@login_required
 def settings():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
@@ -163,6 +163,7 @@ def sell():
 
 
 @myapp_obj.route('/logout')
+@login_required
 def logout():
 
     logout_user()
@@ -193,3 +194,10 @@ def reviewform():
     return render_template("reviews.html", login_status=login_status, form=form)
 
 # @myapp_obj.route("/findItems", )
+
+#@myapp_obj.route('/addToCart', methods=['POST'])
+#@login_required
+#def addToCart():
+	
+	
+	
