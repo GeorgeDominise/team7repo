@@ -55,15 +55,17 @@ def addToCart(id=0):
     return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
 
 
-@myapp_obj.route("/purchase/buynow/<id>")
+@myapp_obj.route("/purchase/buynow/<id>", methods=["GET", "POST"])
 def buyNow(id=0):
+	global items
 	print("Reached outside the request.method if statement")
 	if request.method == "POST":
 		print("Reached inside the request.method if statement")
 		item = Item.query.filter_by(id=id).first()
 		db.session.delete(item)
 		db.session.commit()
-		return redirect("/")
+		items = Item.query.all()
+		return redirect("/purchase")
 
 	return render_template("buyNow.html", users=users, login_status=login_status, item=items[int(id)-1])
 
