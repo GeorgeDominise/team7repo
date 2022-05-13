@@ -42,7 +42,7 @@ def purchase():
 
 @myapp_obj.route("/purchase/<id>")
 def purchaseItem(id=0):
-    return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+    return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], items=items)
 
 
 def addToCart(id=0):

@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/purchase.css') }}">
+
 <!-- Product section-->
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
@@ -27,19 +30,21 @@
 <!-- Related items section-->
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
-		<h2 class="fw-bolder mb-4">Featured products</h2>
+		<h2 class="fw-bolder mb-4">Newest products</h2>
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+				{% for product in items %}
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+						<a href="{{ url_for('purchaseItem', id=product.id) }}"><img class="card-img-top img img-responsive full-width" src="{{ product.image_url }}" alt="..." /></a>
 						<div class="card-body p-4">
 							<div class="text-center">
-								<h5 class="fw-bolder">Fancy Product</h5>
-								$40.00 - $80.00
+								<a href="{{ url_for('purchaseItem', id=product.id) }}"><h5 class="fw-bolder">{{ product.name }}</h5></a>
+								${{ product.price }}
 							</div>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
