@@ -16,7 +16,6 @@ myapp_obj.config.from_mapping(
 )
 
 db = SQLAlchemy(myapp_obj)
-migrate = Migrate(myapp_obj, db)
 
 search = Search(db=db)
 search.init_app(myapp_obj)

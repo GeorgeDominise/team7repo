@@ -26,7 +26,7 @@
 
 		<div class="col-md-8 order-md-1">
 			<h4 class="mb-3">Billing address</h4>
-			<form class="needs-validation" novalidate>
+			<form class="needs-validation" method="POST" action="{{ url_for('buyNow', id=item.id) }}" novalidate>
 				<div class="row">
 					<div class="col-md-6 mb-3">
 						<label for="firstName">First name</label>
@@ -122,7 +122,7 @@
 					</div>
 				</div>
 				<hr class="mb-4">
-					<input class="btn btn-dark btn-lg btn-block" type="submit">Continue to checkout</input>
+				<input class="btn btn-dark btn-lg btn-block" type="submit">Continue to checkout</input>
 			</form>
 		</div>
 	</div>
