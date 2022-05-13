@@ -2,9 +2,72 @@
 
 {% block content %}
 
-<!-- Kyo will handle this portion. -->
+<div class="container text-center">
+	<h3>VANILUXE</h3>
+	<p><em>Dedicated to making the world a better place.</em></p>
+	<p>VANILUXE offers only the best products to our customer. We believe trust is a two way street. You can trust us to not scam you, and we will trust you to pay us in full. All pictures on this website are taken by our excellent photographers... But don't bring that up to any lawyers, or reverse Google search any images. That would be a breach of the trust that we share.</p>
+	<br>
+	<h3>Meet the team!</h3>
+	<p>Click on the profiles to be taken to their respective GitHub page.</p>
+	<br>
+	<div class="row">
+		<div class="col-sm-4">
+			<p><strong>Kyo Lee (@DetectiPhoenix)</strong></p><br>
+			<a href="https://github.com/DetectiPhoenix"><img src="https://avatars.githubusercontent.com/u/99688705" class="img-circle person" alt="DetectiPhoenix"></a>
+		</div>
+		<div class="col-sm-4">
+			<p><strong>Maryia Sakharava (@maryiasakharava)</strong></p><br>
+			<a href="https://github.com/maryiasakharava"><img src="https://avatars.githubusercontent.com/u/99642282?v=4" class="img-circle person" alt="maryiasakharava"></a>
+		</div>
+		<div class="col-sm-4">
+			<p><strong>George Dominise (@GeorgeDominise)</strong></p><br>
+			<a href="https://github.com/GeorgeDominise"><img src="https://avatars.githubusercontent.com/u/99700684?v=4" class="img-circle person" alt="GeorgeDominise"></a>
+		</div>
+		<div class="col-sm-4">
+			<p><strong>Rohan Maheshwari (@rmhsh8)</strong></p><br>
+			<a href="https://github.com/rmhsh8"><img src="https://avatars.githubusercontent.com/u/99620775?v=4" class="img-circle person" alt="rmhsh8"></a>
+		</div>
+		<div class="col-sm-4">
+			<p><strong>Jaskaran Singh (@jazSingh5)</strong></p><br>
+			<a href="https://github.com/jazSingh5"><img src="https://avatars.githubusercontent.com/u/44950413?v=4" class="img-circle person" alt="jazSingh5"></a>
+		</div>
+		<div class="col-sm-4">
+			<p><strong>Jeff</strong></p><br>
+			<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?id=111504&s=300&type=portrait" class="img-circle person" alt="Jeff"></a>
+		</div>
+	</div>
+</div>
 
-<!-- Code goes here. No need for <!DOCTYPE html>, <html>, <head>, or <body>. -->
+<div class="container text-center">
+	<h3>Contact</h3>
+	<p><em>We'd love to hear your thoughts!</em></p>
+	<div class="row test">
+		<div class="col-md-4">
+			<p>Drop a note. Expect a response in at least 24 hours.</p>
+			<p><span class="glyphicon glyphicon-map-marker"></span>California, US</p>
+			<p><span class="glyphicon glyphicon-phone"></span>Phone: +1 (650) 267-0583</p>
+			<p><span class="glyphicon glyphicon-envelope"></span>Email: kyo.se.lee@gmail.com</p>
+		</div>
+		<div class="col-md-8">
+			<form method="POST" action="/about">
+				<div class="row">
+					<div class="col-sm-6 form-group">						
+						<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+					</div>
+					<div class="col-sm-6 form-group">
+						<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+					</div>
+				</div>
+				<textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+				<div class="row">
+					<div class="col-md-12 form-group">
+						<button class="btn pull-right" type="submit">Send</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 {% endblock %}
 
