@@ -31,21 +31,27 @@
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
 		<h2 class="fw-bolder mb-4">Newest products</h2>
-			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				{% for product in items %}
-				<div class="col mb-5">
-					<div class="card h-100">
-						<a href="{{ url_for('purchaseItem', id=product.id) }}"><img class="card-img-top img img-responsive full-width" src="{{ product.image_url }}" alt="..." /></a>
-						<div class="card-body p-4">
-							<div class="text-center">
-								<a href="{{ url_for('purchaseItem', id=product.id) }}"><h5 class="fw-bolder">{{ product.name }}</h5></a>
-								${{ product.price }}
-							</div>
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
+		<div class="shop-items">
+			<div class="container-fluid">
+        		        <div class="row">
+                		        {% for item in items %}
+                        		<div class="col-md-3 col-sm-6">
+                               			<div class="item">
+                                       			<div class="image">
+                                       			        <a href="{{ url_for('purchaseItem', id=item.id) }}"><img class="img img-responsive full-width" src="{{ item.image_url }}" alt=""></a>
+                                       			</div>
+                                       			<div class="item-dtls">
+                                       			        <h4><a href="{{ url_for('purchaseItem', id=item.id) }}">{{ item.name }}</a></h4>
+                                       			        <span class="price black">${{ item.price }}</span>
+                                       			</div>
+                                       			<div class="ecom bg-black">
+                                       			        <a class="btn btn-black" href="#" role="button">Add to cart</a>
+                                       			</div>
+                               			</div>
+                        		</div>
+                        		{% endfor %}
+                		</div>
+        		</div>
 		</div>
 	</div>
 </section>

@@ -124,7 +124,6 @@ def register():
         return redirect("/signin")
     return render_template("register.html", login_status=login_status, form=form)
 
-
 @myapp_obj.route("/deleteaccount", methods=["GET","POST"])
 def deleteaccount():
     global login_status
@@ -149,9 +148,11 @@ def about():
     return render_template("about.html", login_status=login_status)
 
 
-@myapp_obj.route("/search/<query>")
+@myapp_obj.route("/search/")
 def search():
-	return render_template("search.html", login_status=login_status, query=query)
+	keyword = request.args.get("query")
+	items = Item.query.msearch(keyword, fields=["name", "description"])
+	return render_template("search.html", login_status=login_status, query=keyword, items=items)
 
 @myapp_obj.route("/settings", methods=["GET", "POST"])
 @login_required
