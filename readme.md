@@ -23,8 +23,9 @@ To run the project navigate into the project directory and run "python3 run.py" 
 
 # Libraries Needed To Run The Project
 - flask
-- flask_login
-- flask_msearch
+- flask-login
+- flask-msearch
+- flask-wtf
 
 # Responsibilities
 Kyo Lee
