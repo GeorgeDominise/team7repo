@@ -5,14 +5,6 @@
 - Rohan Maheshwari (@rmhsh8)
 - Jaskaran Singh (@jazSingh5) 
 
-# How To Run The Project
-To run the project navigate into the project directory and run "python3 run.py" command. Once the command executes,
-you need to copy the address of the website, and paste it into you browser.
-
-# How To Use The Website
-
-# Libraries Needed To Run The Project
-
 # Responsibilities
 Kyo Lee
 - Buy Item
@@ -27,7 +19,8 @@ Maryia Sakharava
 George Dominise
 - Find Items
 - See all Seller's Items
-- Contact Form
+- Contact Page
+- Review page 
 
 Rohan Maheshwari
 - Create Account
@@ -36,3 +29,8 @@ Rohan Maheshwari
 
 Jaskaran Singh
 - User settings
+
+# Running Project Instructions
+- Open terminal
+- Type python3 run.py
+- Click the local link displayed on the terminal to open webpage
