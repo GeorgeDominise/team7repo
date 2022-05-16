@@ -1,15 +1,15 @@
 from app import myapp_obj
 from app import forms
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, session
 from flask import flash, redirect, render_template, request
 from app import db
-from app.models import User, Item
+from app.models import User, Item, cartItem
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 login_manager = LoginManager()
 login_manager.init_app(myapp_obj)
-
 
 @login_manager.user_loader
 def load_user(username):
@@ -22,7 +22,10 @@ login_status = False
 # Pernament variables
 users = User.query.all()
 items = Item.query.all()
+cartItems=cartItem.query.all()
 Bidders = {}
+
+
 
 @myapp_obj.route("/")
 @myapp_obj.route("/home")
@@ -216,10 +219,26 @@ def reviewform():
     return render_template("reviews.html", login_status=login_status, form=form)
 
 # @myapp_obj.route("/findItems", )
+  
+@myapp_obj.route('/cart')
+def cart():
+	return render_template('cart.html')
 
-#@myapp_obj.route('/addToCart', methods=['POST'])
-#@login_required
-#def addToCart():
-	
-	
-	
+@myapp_obj.route('/addToCart/<int:id>')
+@login_required
+def addToCart(id):
+	product = Item.query.filter(Item.id == id)
+	cart_item = cartItem(product=product)
+	db.session.add(cart_item)
+	db.session.commit()
+	return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
+
+
+#@myapp_obj.route('/cart')
+#def cart():
+#	products, grand_total = handle_cart()
+#	return render_template('cart.html', products = products, grand_total=grand_total)
+
+
+
+

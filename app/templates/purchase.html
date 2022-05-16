@@ -5,6 +5,7 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/purchase.css') }}">
 
 <div class="shop-items">
+</script>
 	<div class="container-fluid">
 		<div class="row">
 			{% for item in items %}
@@ -18,11 +19,12 @@
 						<span class="price black">${{ item.price }}</span>
 					</div>
 					<div class="ecom bg-black">
-						<a class="btn btn-black" href="#" role="button">Add to cart</a>
+						<a class="btn btn-black" href="/addToCart/{{item.id}}" role="button">Add to cart</a>
 					</div>
 				</div>
 			</div>
 			{% endfor %}
+			
 		</div>
 	</div>
 </div>

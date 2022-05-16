@@ -1,6 +1,8 @@
 from app import db
 from flask_login import UserMixin, LoginManager
 from datetime import datetime
+from wtforms import HiddenField
+
 
 class User(UserMixin, db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -8,7 +10,7 @@ class User(UserMixin, db.Model):
 	email = db.Column(db.String(128), index=True, unique=True)
 	password_hash = db.Column(db.String(128))
 	registered = db.Column(db.Boolean)
-
+#	cart=db.relationship('Item', secondary=carts, lazy='subquery')
 	items = db.relationship("Item", backref="author", lazy="dynamic")
 
 	def is_authenticated(self):
@@ -16,6 +18,7 @@ class User(UserMixin, db.Model):
 
 	def __repr__(self):
 		return "<User {}>".format(self.username)
+
 
 class Item(db.Model):
 	__searchable__ = ["name", "description"]
@@ -33,3 +36,7 @@ class Item(db.Model):
 
 	def __repr__(self):
 		return "<Item {}>".format(self.name)
+
+class cartItem(db.Model):
+	id=db.Column(db.Integer, primary_key=True)
+

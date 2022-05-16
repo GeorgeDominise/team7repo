@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from operator import length_hint
 from wsgiref.validate import validator
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, FloatField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, FloatField, HiddenField
 from wtforms.validators import DataRequired, InputRequired, Email, Length
 
 class SellForm(FlaskForm):
@@ -41,3 +41,5 @@ class ReviewForm(FlaskForm):
 	Product = StringField("Product Name: ", validators=[DataRequired()])
 	Review = StringField("Review: ", validators=[DataRequired()])
 
+#class AddToCart(FlaskForm):
+#	id=HiddenField('ID')
