@@ -9,7 +9,7 @@ class SellForm(FlaskForm):
 	name = StringField("Name", validators=[DataRequired()])
 	price = FloatField("Price", validators=[DataRequired()])
 #	description = StringField("Description")
-	image_url = StringField("Image URL", validators=[DataRequired()])
+#	image_url = StringField("Image URL", validators=[DataRequired()])
 	submit = SubmitField("Sell Item")
 
 class RegistrationForm(FlaskForm):

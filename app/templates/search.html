@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/purchase.css') }}">
+
+<div class="shop-items">
+        <div class="container-fluid">
+		<h3>Searching for <strong>{{ query }}</strong>...</h3>
+                <div class="row">
+                        {% for item in items %}
+                        <div class="col-md-3 col-sm-6">
+                                <div class="item">
+                                        <div class="image">
+                                                <a href="{{ url_for('purchaseItem', id=item.id) }}"><img class="img img-responsive full-width" src="{{ item.image_url }}" alt=""></a>
+                                        </div>
+                                        <div class="item-dtls">
+                                                <h4><a href="{{ url_for('purchaseItem', id=item.id) }}">{{ item.name }}</a></h4>
+                                                <span class="price black">${{ item.price }}</span>
+                                        </div>
+                                        <div class="ecom bg-black">
+                                                <a class="btn btn-black" href="#" role="button">Add to cart</a>
+                                        </div>
+                                </div>
+                        </div>
+                        {% endfor %}
+                </div>
+		{% if not items[0] %}
+		<h3 style="color: #7A7A7A">Awe, snap. Looks like there's nothing here. Have you tried searching for other keywords?</h3>
+		<h5 style="color: #7A7A7A">Keep in mind that there is no autocorrect. Check your spelling!</h5>
+		{% endif %}
+        </div>
+</div>
+
+{% endblock %}

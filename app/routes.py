@@ -42,7 +42,11 @@ def purchase():
 
 @myapp_obj.route("/purchase/<id>")
 def purchaseItem(id=0):
-    return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], items=items)
+	if len(items) < 4:
+		newest = reversed(items)
+	else:
+		newest = list(reversed(items))[:4]
+	return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], newest=newest)
 
 
 def addToCart(id=0):
@@ -176,7 +180,7 @@ def sell():
 	print("Reached right outside the 'form.validate_on_submit()' method.")
 	if form.validate_on_submit():
 		print("Reached inside the 'form.validate_on_submit()' method.")
-		i = Item(name=form.name.data, price=form.price.data, description=request.form["description"], image_url=form.image_url.data)
+		i = Item(name=form.name.data, price=form.price.data, description=request.form["description"], image_url=request.form["image"])
 		db.session.add(i)
 		db.session.commit()
 		items = Item.query.all()
