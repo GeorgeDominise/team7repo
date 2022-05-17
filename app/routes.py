@@ -155,14 +155,16 @@ def search():
 	return render_template("search.html", login_status=login_status, query=keyword, items=items)
 
 @myapp_obj.route("/settings", methods=["GET", "POST"])
-@login_required
+#@login_required
 def settings():
-    form = forms.RegistrationForm()
+    form = forms.SettingsForm()
+    user = User.query.filter_by(username=current_user.username).first()
     if form.validate_on_submit():
-        hashed_password = generate_password_hash(
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        user.password_hash = generate_password_hash(
             form.password.data, method='sha256')
-        u = User(username=form.username.data, email=form.email.data,
-                 password_hash=hashed_password)
+        flash("Account information updated","success")
         db.session.commit()
         return redirect("/home")
     return render_template("settings.html", login_status=login_status, form=form)

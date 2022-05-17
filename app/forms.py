@@ -41,3 +41,8 @@ class ReviewForm(FlaskForm):
 	Product = StringField("Product Name: ", validators=[DataRequired()])
 	Review = StringField("Review: ", validators=[DataRequired()])
 
+class SettingsForm(FlaskForm):
+	username = StringField("Name", validators=[DataRequired()])
+	email = StringField("Email", validators=[DataRequired()])
+	password = PasswordField("Password", validators=[DataRequired()])
+	submit = SubmitField("Submit")
