@@ -30,6 +30,7 @@ class Item(db.Model):
 	description = db.Column(db.String(2048))
 	image_url = db.Column(db.String(256))
 
+
 #	timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 	user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
@@ -37,6 +38,4 @@ class Item(db.Model):
 	def __repr__(self):
 		return "<Item {}>".format(self.name)
 
-class cartItem(db.Model):
-	id=db.Column(db.Integer, primary_key=True)
 

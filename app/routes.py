@@ -3,11 +3,11 @@ from app import forms
 from flask import Flask, render_template, request, url_for, session
 from flask import flash, redirect, render_template, request
 from app import db
-from app.models import User, Item, cartItem
+from app.models import User, Item
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
+#intializing login manager to keep track of the login status
 login_manager = LoginManager()
 login_manager.init_app(myapp_obj)
 
@@ -22,7 +22,6 @@ login_status = False
 # Pernament variables
 users = User.query.all()
 items = Item.query.all()
-cartItems=cartItem.query.all()
 Bidders = {}
 
 
@@ -47,7 +46,7 @@ def purchase():
 def purchaseItem(id=0):
     return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], items=items)
 
-
+#test add to cart method for one specific item
 def addToCart(id=0):
 
     item = Item.query.filter(Item.id == id)
@@ -113,7 +112,8 @@ def signin():
     return render_template("signin.html", login_status=login_status, form=form)
 
 
-@myapp_obj.route("/register", methods=['GET', 'POST'])
+
+@myapp_obj.route("/register", methods=['POST'])
 def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
@@ -191,8 +191,8 @@ def sell():
 @login_required
 def logout():
 
-    logout_user()
-    login_status = False
+    logout_user() #will only log the user out if he was proviously logged in
+    login_status = False		#variable that keeps track of the login status
     return render_template("home.html", login_status=login_status)
 
 
@@ -220,25 +220,36 @@ def reviewform():
 
 # @myapp_obj.route("/findItems", )
   
-@myapp_obj.route('/cart')
-def cart():
-	return render_template('cart.html')
 
-@myapp_obj.route('/addToCart/<int:id>')
+
+@myapp_obj.route('/addToCart/<int:id>') # add item with the specific id to cart
 @login_required
 def addToCart(id):
-	product = Item.query.filter(Item.id == id)
-	cart_item = cartItem(product=product)
-	db.session.add(cart_item)
-	db.session.commit()
-	return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
 
+	if "cart" not in session:
+		session["cart"] = []
 
-#@myapp_obj.route('/cart')
-#def cart():
-#	products, grand_total = handle_cart()
-#	return render_template('cart.html', products = products, grand_total=grand_total)
+	session["cart"].append(id)
 
+	flash("Successfully added to cart!")
+	return redirect("/cart")
+
+@myapp_obj.route('/cart')
+def cart():
+    if "cart" not in session:
+        flash("There is nothing in your cart.")
+        return render_template("cart.html", display_cart = {}, total = 0)
+    else:
+        items = session["cart"]
+        dict_of_items = {}
+
+    total_price = 0
+    for item in items:
+        item = Item.query.filter_by(id)
+        total_price += item.price
+        dict_of_items[item.id] = {"name": item.name, "price":item.price}
+        
+    return render_template("cart.html", display_cart = dict_of_items, total = total_price)
 
 
 
