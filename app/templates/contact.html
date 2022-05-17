@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %} Old contact form, George
 
 {% block content %}
 
@@ -13,16 +13,16 @@
         <label>Last Name:</label>
         <input name='name' type='text' required>
         <p></p>
-        <label>Subject:</Label>
+        <label>Subject:  </Label>
         <input text='text' type='text' required>
         <p></p>
         <label>Your Message:</label>
-        <textarea id="message" name="message" placeholder="Write something..." style="height:200px"></textarea>
+        <textarea id="message" name="message" placeholder="Write your message..." style="height:200px"></textarea>
         <input type='Submit'>
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <ul>
+            <ul>    
                 {% for message in messages %}
                 <li>{{message}}</li>
                 {% endfor %}
@@ -32,5 +32,4 @@
 
     </form>
 </div>
-
 {% endblock %}

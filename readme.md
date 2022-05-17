@@ -40,7 +40,6 @@ Maryia Sakharava
 - Add Items to Cart (NOT COMPLETE)
 
 George Dominise
-- Find Items (NOT COMPLETE)
 - See all Seller's Items (NOT COMPLETE)
 - Contact Form
 - Reviews Form
