@@ -8,10 +8,10 @@
 			<form method="POST" action="/sell">
 				{{ form.hidden_tag() }}
                         	<div class="col-md-6">
-					<h5>{{ form.image_url.label }}</h5>
-					{{ form.image_url(size=8) }}
+					<label for="description">Image URL</label>
+					<textarea class="form-control" name="image_url" rows="5"></textarea>
 				</div>
-	                	<div class="col-md-6">
+				<div class="col-md-6">
         	        		<div class="small mb-1">ITEM ID:</div>
 					<h5>{{ form.name.label }}</h5>
                         		<h1 class="display-5 fw-bolder">{{ form.name(size=16) }}</h1>

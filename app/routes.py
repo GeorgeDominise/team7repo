@@ -46,7 +46,9 @@ def purchaseItem(id=0):
 		newest = reversed(items)
 	else:
 		newest = list(reversed(items))[:4]
-	return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], newest=newest)
+	sellerID = items[int(id)-1].author.id
+	seller = User.query.filter_by(id=sellerID).first()
+	return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], newest=newest, seller=seller)
 
 
 def addToCart(id=0):
@@ -65,7 +67,6 @@ def buyNow(id=0):
 	print("Reached outside the request.method if statement")
 	if request.method == "POST":
 		print("Reached inside the request.method if statement")
-		item = Item.query.filter_by(id=id).first()
 		db.session.delete(item)
 		db.session.commit()
 		items = Item.query.all()
@@ -173,14 +174,16 @@ def settings():
 
 
 @myapp_obj.route("/sell", methods=["GET", "POST"])
-# @login_required
+@login_required
 def sell():
 	global items
 	form = forms.SellForm()
 	print("Reached right outside the 'form.validate_on_submit()' method.")
+	print(current_user.id)
 	if form.validate_on_submit():
 		print("Reached inside the 'form.validate_on_submit()' method.")
-		i = Item(name=form.name.data, price=form.price.data, description=request.form["description"], image_url=request.form["image"])
+		seller = User.query.filter_by(id=current_user.id).first()
+		i = Item(name=form.name.data, price=form.price.data, description=request.form["description"], image_url=request.form["image_url"], author=seller)
 		db.session.add(i)
 		db.session.commit()
 		items = Item.query.all()
