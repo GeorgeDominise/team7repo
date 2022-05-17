@@ -42,24 +42,15 @@ def purchase():
 
 @myapp_obj.route("/purchase/<id>")
 def purchaseItem(id=0):
+	global items
+	items = Item.query.all()
 	if len(items) < 4:
 		newest = reversed(items)
 	else:
 		newest = list(reversed(items))[:4]
 	sellerID = items[int(id)-1].author.id
-	seller = User.query.filter_by(id=sellerID).first()
+	seller = User.query.filter_by(id=sellerID).first().username
 	return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1], newest=newest, seller=seller)
-
-
-def addToCart(id=0):
-
-    item = Item.query.filter(Item.id == id)
-    cart_item = CartItem(item=item)
-    db.session.add(cart_item)
-    db.session.commit()
-
-    return render_template("purchaseItem.html", users=users, login_status=login_status, item=items[int(id)-1])
-
 
 @myapp_obj.route("/purchase/buynow/<id>", methods=["GET", "POST"])
 def buyNow(id=0):
@@ -67,6 +58,7 @@ def buyNow(id=0):
 	print("Reached outside the request.method if statement")
 	if request.method == "POST":
 		print("Reached inside the request.method if statement")
+		item = Item.query.filter_by(id=id).first()
 		db.session.delete(item)
 		db.session.commit()
 		items = Item.query.all()
@@ -223,12 +215,14 @@ def reviewform():
     return render_template("reviews.html", login_status=login_status, form=form)
 
 @myapp_obj.route("/viewItems/<seller>" )
-def sellerItems():
+def sellerItems(seller):
+    global items
+    items = Item.query.all()
     itemList = []
     for item in items:
-        if item.author == seller:
+        if item.author.username == seller:
             itemList.append(item)
-    return render_template("viewItems.html", login_status = login_status, itemList = itemList)
+    return render_template("viewItems.html", login_status = login_status, itemList = itemList, seller=seller)
 
 
 #@myapp_obj.route('/addToCart', methods=['POST'])

@@ -17,7 +17,7 @@
 				</div>
 				<p class="lead">{{ item.description }}</p>
 <!--				<p class="lead">Stock left: { item.stock }}</p>-->
-				<p class="lead">Seller: {{ seller.username }}</p>
+				<p class="lead">Seller: <a href="{{ url_for('sellerItems', seller=seller) }}">{{ seller }}</p>
 				<div class="d-flex">
 					<a class="btn btn-outline-dark flex-shrink-0" type="button" role="button">Add to cart</a>
 					<a class="btn btn-dark" href="{{ url_for('buyNow', id=item.id) }}" role="button">Buy Now!</a>
