@@ -47,7 +47,7 @@ George Dominise
 Rohan Maheshwari
 - Create Account
 - Delete Account
-- Bid on Item (NOT COMPLETE)
+- Wishlist
 
 Jaskaran Singh
 - User settings
