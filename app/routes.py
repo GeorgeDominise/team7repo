@@ -197,7 +197,7 @@ def logout():
     return render_template("home.html", login_status=login_status)
 
 
-@myapp_obj.route("/contact", methods=['GET', 'POST'])
+'''@myapp_obj.route("/contact", methods=['GET', 'POST']) Old contact form, George
 def contactform():
     form = forms.ContactForm()
     if form.validate_on_submit():
@@ -207,7 +207,7 @@ def contactform():
         flash("Thank you for submitting a contact form! We'll get back with you as soon as we can.")
         return redirect("/contact")
     return render_template("contact.html", login_status=login_status, form=form)
-
+'''
 
 @myapp_obj.route("/reviews", methods=['GET', 'POST'])
 def reviewform():
@@ -219,11 +219,15 @@ def reviewform():
         return redirect("/reviews")
     return render_template("reviews.html", login_status=login_status, form=form)
 
-# @myapp_obj.route("/findItems", )
+@myapp_obj.route("/viewItems/<seller>" )
+def sellerItems():
+    itemList = []
+    for item in items:
+        if item.author == seller:
+            itemList.append(item)
+    return render_template("viewItems.html", login_status = login_status, itemList = itemList)
+
 
 #@myapp_obj.route('/addToCart', methods=['POST'])
 #@login_required
 #def addToCart():
-	
-	
-	
