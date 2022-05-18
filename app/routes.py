@@ -6,6 +6,7 @@ from app import db
 from app.models import User, Item
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import random
 
 login_manager = LoginManager()
 login_manager.init_app(myapp_obj)
@@ -27,7 +28,8 @@ Bidders = {}
 @myapp_obj.route("/")
 @myapp_obj.route("/home")
 def home():
-    return render_template("home.html", login_status=login_status)
+	randID = random.randrange(1, len(items)) - 1
+	return render_template("home.html", login_status=login_status, randID=randID)
 
 
 @myapp_obj.route("/featured")
