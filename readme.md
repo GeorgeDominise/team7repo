@@ -13,19 +13,15 @@ To run the project navigate into the project directory and run "python3 run.py" 
 
 # How To Use The Website
 - UI is interactive. "Settings" and "Log Out" can be found in the dropdown menu below "Account" (assuming you have logged in).
-- In order to sell an item (currently), use ipython3 and follow these steps: 
--    from app import db
--    from app.models import User, Item
--    // If already created user, find user with User.query.all(). If not, create user using Register button.
--    i = Item(name="name", price=0, description="description", image_url="image url", author=user)
--    db.session.add(i)
--    db.session.commit()
+- In order to sell an item, create and log in using the buttons in the top right corner. In the dropdown for "account", select "Sell Wares".
 
 # Libraries Needed To Run The Project
 - flask
 - flask-login
 - flask-msearch
 - flask-wtf
+- flask-migrate
+- config
 
 # Responsibilities
 Kyo Lee
