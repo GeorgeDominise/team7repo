@@ -30,9 +30,10 @@ To run the project navigate into the project directory and run "python3 run.py" 
 # Responsibilities
 Kyo Lee
 - Buy Item
-- Sell Item (NOT COMPLETE)
+- Sell Item
 - Add Pictures to Item
 - Splash page
+- Search Items
 
 Maryia Sakharava
 - Sign In
@@ -40,14 +41,14 @@ Maryia Sakharava
 - Add Items to Cart (NOT COMPLETE)
 
 George Dominise
-- See all Seller's Items (NOT COMPLETE)
+- See all Seller's Items
 - Contact Form
 - Reviews Form
 
 Rohan Maheshwari
 - Create Account
 - Delete Account
-- Bid on Item (NOT COMPLETE)
+- Wishlist
 
 Jaskaran Singh
 - User settings
