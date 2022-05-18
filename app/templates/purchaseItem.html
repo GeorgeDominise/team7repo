@@ -19,8 +19,9 @@
 <!--				<p class="lead">Stock left: { item.stock }}</p>-->
 				<p class="lead">Seller: <a href="{{ url_for('sellerItems', seller=seller) }}">{{ seller }}</p>
 				<div class="d-flex">
-					<a class="btn btn-outline-dark flex-shrink-0" type="button" role="button">Add to cart</a>
-					<a class="btn btn-dark" href="{{ url_for('buyNow', id=item.id) }}" role="button">Buy Now!</a>
+					<a class="btn btn-dark" href="{{ url_for('wishlist', id=item.id) }}" role="button">Add to Wishlist</a>
+					<a class="btn btn-outline-dark flex-shrink-0" type="button" role="button">Add to Cart</a>
+					<a class="btn btn-dark" href="{{ url_for('buyNow', id=item.id) }}" role="button">Buy Now</a>
 				</div>
 			</div>
 		</div>
